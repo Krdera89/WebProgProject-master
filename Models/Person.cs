@@ -17,20 +17,27 @@ namespace WebProgProject.Models
         public Person() { }
         [Key]
         public int id { get; set; }
+        public string CensusRecords{get;set;}
         public string Upload { get; set; }
         public string MaidenName { get; set; }
         public string Name { get; set; }
         public string FirstName { get; set; }
         public string MiddleName { get; set; }
         public string LastName { get; set; }
+        public string Spouse { get; set; }
+        public string Mother { get; set; }
+        public string Father { get; set; }
+        public string Siblings { get; set; }
         public string Title { get; set; }
         public string Job { get; set; }
         public DateTime DOB { get; set; }
+        public DateTime DOM { get; set; } //Date of marriage
         public DateTime DODeath { get; set; }
         public string BirthPlace { get; set; }
         public string DeathPlace { get; set; }
         public string Profession { get; set; }
         public string DeathCause { get; set; }
+        public DateTime DateOfDeath { get; set; }
         // public Person spouse { get; set; }
         // public Person mother { get; set; }
         // public Person father { get; set; }

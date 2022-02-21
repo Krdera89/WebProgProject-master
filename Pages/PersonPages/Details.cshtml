@@ -18,116 +18,63 @@
     </div>
 </form>
 <div>
-    <h4>Person</h4>
-    <hr />
-    @*<dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.Pictures)
-        </dt>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.Name)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.Name)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.FirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.FirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.MiddleName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.MiddleName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.LastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.LastName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.Title)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.Title)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.Job)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.Job)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.DOB)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.DOB)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.DODeath)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.DODeath)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.BirthPlace)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.BirthPlace)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.DeathPlace)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.DeathPlace)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.Profession)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.Profession)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.DeathCause)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.DeathCause)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Person.gender)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Person.gender)
-        </dd>
-      
-    </dl>
-    <ul>
-    @{ foreach (WebProgProject.Models.Picture p in Model.Person.Pictures)
-        {
-            <li><iframe src="@p.picPath" height="200" width="300"></iframe></li>
-        }
-
-    }
-        </ul>
-
-    <ul>
-        @{ foreach (WebProgProject.Models.Plot plo in Model.Person.Plots)
-            {
-                <li>@plo.plotNumber</li>
-                <li>@plo.location</li>
-                <li>@plo.Pictures</li>
-                <li>@plo.Cemetaries</li>
-
-            }
-        }
-    </ul>
-</div>*@
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.Upload)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.Spouse)
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.DOM) @*Date of marriage*@
+                </th>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.Mother)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.Father)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.Siblings)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.CensusRecords)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.DateOfDeath)
+                </th>
+                @*foreach (var item in Model.People){
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.Upload)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.Spouse)
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.DOM) Date of marriage
+                </td>
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.Mother)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.Father)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.Siblings)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.CensusRecords)
+                </td>
+                <td>
+                    @Html.DisplayNameFor(model => model.Person.DateOfDeath)
+                </td>
+                }*@
 
 
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
-</div>
+                <div>
+                    <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
+                    <a asp-page="./Index">Back to List</a>
+                </div>
+                </table>
