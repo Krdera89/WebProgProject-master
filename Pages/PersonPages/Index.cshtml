@@ -1,0 +1,124 @@
+﻿@page
+@model WebProgProject.Pages.PersonPages.IndexModel
+
+@{
+    ViewData["Title"] = "People";
+}
+
+<h1>Discover your Ancestors</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Upload)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].MaidenName)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.FNameSort">
+                    @Html.DisplayNameFor(model => model.People[0].FirstName)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.People[0].MiddleName)
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.LNameSort">
+                    @Html.DisplayNameFor(model => model.People[0].LastName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BirthDateSort">
+                    @Html.DisplayNameFor(model => model.People[0].DOB)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.DeathDateSort">
+                    @Html.DisplayNameFor(model => model.People[0].DODeath)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].BirthPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].DeathPlace)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].Profession)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].DeathCause)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Person[0].gender)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.People) {
+        <tr>
+            <td>
+                <img src="/Uploads/@item.Upload" width="50px" height="50px" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaidenName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DODeath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeathPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Profession)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeathCause)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gender)
+            </td>
+
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

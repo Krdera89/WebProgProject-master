@@ -1,0 +1,174 @@
+﻿@page
+@model WebProgProject.Pages.PersonPages.IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+<center><h1>Welcome to St. John's Cemetary!</h1></center>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides">
+        <div class="numbertext">1 / 7</div>
+        <center><img src="https://images.findagrave.com/photos250/photos/2013/134/CEM75876_136863814726.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">2 / 7</div>
+        <center><img src="https://images.findagrave.com/photos250/photos/2013/135/CEM75876_136872196868.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">3 / 7</div>
+        <center><img src="https://images.findagrave.com/photos250/photos/2008/219/CEM46830787_121811901966.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">4 / 7</div>
+        <center><img src="https://images.findagrave.com/photos250/photos/2012/227/CEM75876_134504364691.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">5 / 7</div>
+        <center><img src="https://images.findagrave.com/photos/2012/293/CEM75876_135077379956.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">6 / 7</div>
+        <center><img src="https://images.findagrave.com/photos/2012/293/CEM75876_135077367635.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+    <div class="mySlides">
+        <div class="numbertext">7 / 7</div>
+        <center><img src="https://images.findagrave.com/photos/2013/248/CEM75876_137849756292.jpg" style="width:50%" height="400px"></center>
+    </div>
+
+
+    <br>
+
+
+
+
+    @*//Search*@
+    <form asp-page="./Index" method="get">
+        <div class="form-actions no-color">
+            <p>
+                Find by name:
+                <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+                <input type="submit" value="Search" class="btn btn-primary" /> |
+                <a asp-page="./Index">Back to full List</a>
+            </p>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].Upload)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].MaidenName)
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.FNameSort">
+                        @Html.DisplayNameFor(model => model.People[0].FirstName)
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.People[0].MiddleName)
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.LNameSort">
+                        @Html.DisplayNameFor(model => model.People[0].LastName)
+                    </a>
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.BirthDateSort">
+                        @Html.DisplayNameFor(model => model.People[0].DOB)
+                    </a>
+                </th>
+                <th>
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.DeathDateSort">
+                        @Html.DisplayNameFor(model => model.People[0].DODeath)
+                    </a>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].BirthPlace)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].DeathPlace)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].Profession)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].DeathCause)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].gender)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.People)
+            {
+            <tr>
+                <td>
+                    <img src="/Uploads/@item.Upload" width="50px" height="50px"/> 
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaidenName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DOB)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DODeath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeathPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Profession)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeathCause)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+
+                <td>
+                    <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a> |
+                    <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a> |
+                    <a asp-page="./PersonPages/Delete" asp-route-id="@item.id">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+

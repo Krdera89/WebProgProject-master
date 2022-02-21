@@ -1,0 +1,42 @@
+﻿@page
+@model WebProgProject.Pages.PicturePersonPages.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PicturePerson[0].person)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PicturePerson[0].picture)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.PicturePerson) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.person.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.picture.id)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

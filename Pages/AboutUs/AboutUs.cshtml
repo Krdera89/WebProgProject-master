@@ -1,0 +1,66 @@
+﻿@page
+@model WebProgProject.Pages.AboutUs.AboutUsModel
+@{
+    ViewData["Title"] = "AboutUs";
+}
+
+<center><h1 style="padding-bottom: 30px">About Us</h1></center>
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h2>
+        Background:
+    </h2>
+    <p>
+        St. John's Cemetry is a Catholic cemetery located in Fort Mitchell, Kentucky. The cemetery was established by the St. John's Parish, the parish, the third oldest Catholic congregation in the City of Covington. Originally located at the corner of Leonard and Worth Streets, the parish complex was rebuilt on Pike Street in the early 1900s. In 1967, the parish, under the supervision of Father Andreas Michel, purchased a parcel of land on the Lexington Pike (Dixie Highway) in the present-day City of Fort Mitchell, KY for use as a cemetery. The cemetery was consecrated on May 19, 1867. St. John's Cemetery developed slowly over the next fifty years. At this time, land was graded, permeant roads were constructed, and numerous ornamental trees and shrubs were planted. Also, at this time, Father A.M. Meyer, pastor of St. Boniface Parish in Ludlow, constructed a small frame chapel in the cemetery, which was dedicated to Blessed Virgin Mary under the title of “Comforter of the afflicted.” St. John Cemetery remained a parish cemetery until 1960s when it was absorbed by the Diocese of Covington Cemetery System.
+    </p>
+    <h2>
+        Contact Us:
+    </h2>
+    <pre>
+    Phone: (859) 331-1394
+    Hours: 
+    Address: 1 St Johns Rd, Fort Mitchell, KY 41011
+    Email: 
+</pre>
+
+
+    <div>
+        <title>Add Map</title>
+
+        <style type="text/css">
+            /* Set the size of the div element that contains the map */
+            #map {
+                height: 400px;
+                /* The height is 400 pixels */
+                width: 100%;
+                /* The width is the width of the web page */
+            }
+        </style>
+        <script>
+            // Initialize and add the map
+            function initMap() {
+                // The location of cemetery
+                const cemetery = { lat: 39.0619011, lng: -84.5550003 };
+                // The map, centered at cemetery
+                const map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 15,
+                    center: cemetery,
+                });
+                // The marker, positioned at cemetery
+                const marker = new google.maps.Marker({
+                    position: cemetery,
+                    map: map,
+                });
+            }
+        </script>
+        <!--The div element for the map -->
+        <div id="map"></div>
+
+        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVgZd68WxBpfLFx70Q9VhpGg3qJd3sv3o&callback=initMap&libraries=&v=weekly"
+                async></script>
+    </div>
+</body>
+</html>

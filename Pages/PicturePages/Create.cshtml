@@ -1,0 +1,43 @@
+﻿@page
+@model WebProgProject.Pages.PicturePages.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Picture</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Picture.notes" class="control-label"></label>
+                <input asp-for="Picture.notes" class="form-control" />
+                <span asp-validation-for="Picture.notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Picture.picPath" class="control-label"></label>
+                <input type="file" asp-for="Upload" class="form-control" />
+                <span asp-validation-for="Picture.picPath" class="text-danger"></span>
+            </div>
+            <select name="type">
+                <option value=".pdf">Pdf</option>
+                <option value=".jpg">Jpg</option>
+            </select>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
