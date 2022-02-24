@@ -1,18 +1,19 @@
-﻿@page
+﻿@page 
 @model WebProgProject.Pages.PersonPages.IndexModel
 @{
     ViewData["Title"] = "Home page";
+   
 }
 
 
-<center><h1>Welcome to St. Johns Cemetery!~</h1></center>
+<center><h1>Welcome to St. Johns Cemetery!</h1></center>
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides">
         <div class="numbertext">1 / 7</div>
-        <center><img src="https://images.findagrave.com/photos250/photos/2013/134/CEM75876_136863814726.jpg" style="width:50%" height="400px"></center>
+        <center><img src="https://images.findagrave.com/photos250/photos/2013/134/CEM75876_136863814726.jpg" style="width:50%" height="50%"></center>
     </div>
 
     <div class="mySlides">
@@ -153,7 +154,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.gender)
                 </td>
-
+                
                 <td>
                     <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a> |
                     <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a> |

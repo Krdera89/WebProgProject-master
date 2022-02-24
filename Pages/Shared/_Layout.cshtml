@@ -20,19 +20,45 @@
                     <partial name="_LoginPartial" />
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="PersonPages/Index">Index</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/PersonPages/Index">Index</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="CemetaryPages/Index">Cemetary map</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/CemetaryPages/Index">Cemetary map</a>
                         </li>
                         <li>
-                            <a class="nav-link text-dark" asp-area="" asp-page="AboutUs/AboutUs">About Us</a>
+                            <a class="nav-link text-dark" asp-area="" asp-page="/AboutUs/AboutUs">About Us</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
+
+
+    @*<script type="text/javascript">
+        $(function () {
+            var page = sessionStorage.getItem('page');
+            var navbar = document.querySelectorAll('li');
+            if (page == null) {
+                $(navbar[0]).addClass('active');
+            } else {
+                navbar.forEach((item, index) => {
+                    if (item.children[0].href == page) {
+                        $(item).addClass('active').siblings().removeClass('active');
+                    }
+                });
+            }
+        })
+
+        $(document).on('click', 'ul li', function () {
+            var x = this.children[0].href;
+            sessionStorage.setItem('page', x);
+        });
+    </script>*@
+
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
