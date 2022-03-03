@@ -45,36 +45,40 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Person.DateOfDeath)
                 </th>
-                @*foreach (var item in Model.People){
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.Upload)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.Spouse)
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.DOM) Date of marriage
-                </td>
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.Mother)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.Father)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.Siblings)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.CensusRecords)
-                </td>
-                <td>
-                    @Html.DisplayNameFor(model => model.Person.DateOfDeath)
-                </td>
-                }*@
+        </thead>
+        <tbody>
+           
+                <tr>
+                    <td>
+                        @Html.DisplayFor(model => model.Person.Upload)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Person.Spouse)
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Person.DOM) 
+                    </td>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Person.Mother)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Person.Father)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Person.Siblings)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => Model.Person.CensusRecords)
+                    </td>
+                    @*<td>
+                        @Html.DisplayNameFor(modelItem => item.AgeOfDeath)
+                    </td>*@
+                </tr>
+            
 
 
-                <div>
-                    <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
-                    <a asp-page="./Index">Back to List</a>
-                </div>
-                </table>
+            <div>
+                <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
+                <a asp-page="./Index">Back to List</a>
+            </div>
+    </table>

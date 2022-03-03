@@ -20,7 +20,7 @@ namespace WebProgProject.Pages.PersonPages
         }
 
         public Person Person { get; set; }
-
+        public IList<Person> People { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
