@@ -62,16 +62,16 @@ namespace WebProgProject.Pages.PersonPages
                     personIQ = personIQ.OrderByDescending(s => s.FirstName);
                     break;
                 case "Birthdate":
-                    personIQ = personIQ.OrderBy(s => s.DOB);
+                    personIQ = personIQ.OrderBy(s => s.DateOfBirth);
                     break;
                 case "Birthdate_desc":
-                    personIQ = personIQ.OrderByDescending(s => s.DOB);
+                    personIQ = personIQ.OrderByDescending(s => s.DateOfBirth);
                     break;
                 case "DeathDate":
-                    personIQ = personIQ.OrderBy(s => s.DODeath);
+                    personIQ = personIQ.OrderBy(s => s.AgeAtDeath);
                     break;
                 case "date_desc":
-                    personIQ = personIQ.OrderByDescending(s => s.DODeath);
+                    personIQ = personIQ.OrderByDescending(s => s.AgeAtDeath);
                     break;
                 default:
                     personIQ = personIQ.OrderBy(s => s.Name);

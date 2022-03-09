@@ -6,7 +6,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+    <h1>Details about  @Html.DisplayNameFor(model => model.People[0].Name)</h1>
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
@@ -27,7 +27,7 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Person.Spouse)
                 <th>
-                    @Html.DisplayNameFor(model => model.Person.DOM) @*Date of marriage*@
+                    @Html.DisplayNameFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
                 </th>
                 </th>
                 <th>
@@ -43,7 +43,7 @@
                     @Html.DisplayNameFor(model => model.Person.CensusRecords)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Person.DateOfDeath)
+                    @Html.DisplayNameFor(model => model.Person.AgeAtDeath)
                 </th>
         </thead>
         <tbody>
@@ -55,7 +55,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => Model.Person.Spouse)
                     <td>
-                        @Html.DisplayFor(modelItem => Model.Person.DOM) 
+                        @Html.DisplayFor(modelItem => Model.Person.DateOfMarriage) 
                     </td>
                     </td>
                     <td>

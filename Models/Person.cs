@@ -17,12 +17,17 @@ namespace WebProgProject.Models
         public Person() { }
         [Key]
         public int id { get; set; }
+        [Display(Name = "Census Records")]
         public string CensusRecords{get;set;}
         public string Upload { get; set; }
+        [Display(Name = "Maiden Name")]
         public string MaidenName { get; set; }
         public string Name { get; set; }
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+        [Display(Name = "Middle Name")]
         public string MiddleName { get; set; }
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Spouse { get; set; }
         public string Mother { get; set; }
@@ -30,12 +35,18 @@ namespace WebProgProject.Models
         public string Siblings { get; set; }
         public string Title { get; set; }
         public string Job { get; set; }
-        public DateTime DOB { get; set; }
-        public DateTime DOM { get; set; } //Date of marriage
-        public DateTime DODeath { get; set; }
+        [Display(Name = "Date Of Birth")]
+        public DateTime DateOfBirth { get; set; }
+        [Display(Name = "Date Of Marriage")]
+        public DateTime DateOfMarriage { get; set; } //Date of marriage
+        [Display(Name = "Age At Death")]
+        public DateTime AgeAtDeath { get; set; }
+        [Display(Name = "Birth Place")]
         public string BirthPlace { get; set; }
+        [Display(Name = "Death Place")]
         public string DeathPlace { get; set; }
         public string Profession { get; set; }
+        [Display(Name = "Death Cause")]
         public string DeathCause { get; set; }
         public DateTime DateOfDeath { get; set; }
         // public Person spouse { get; set; }
