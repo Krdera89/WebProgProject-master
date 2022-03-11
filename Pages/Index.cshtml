@@ -93,7 +93,7 @@
                 </th>
                 <th>
                     <a asp-page="./Index" asp-route-sortOrder="@Model.DeathDateSort">
-                        @Html.DisplayNameFor(model => model.People[0].AgeAtDeath)
+                        @Html.DisplayNameFor(model => model.People[0].DateOfDeath)
                     </a>
                 </th>
                 <th>
@@ -137,7 +137,7 @@
                     @Html.DisplayFor(modelItem => item.DateOfBirth)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.AgeAtDeath)
+                    @Html.DisplayFor(modelItem => item.DateOfDeath)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.BirthPlace)
