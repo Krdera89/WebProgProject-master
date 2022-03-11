@@ -39,6 +39,7 @@ namespace WebProgProject.Models
         public DateTime DateOfBirth { get; set; }
         [Display(Name = "Date Of Marriage")]
         public DateTime DateOfMarriage { get; set; } //Date of marriage
+
         [Display(Name = "Age At Death")]
         public DateTime AgeAtDeath { get; set; }
         [Display(Name = "Birth Place")]
@@ -48,6 +49,8 @@ namespace WebProgProject.Models
         public string Profession { get; set; }
         [Display(Name = "Death Cause")]
         public string DeathCause { get; set; }
+
+        [Display(Name = "Date Of Death")]
         public DateTime DateOfDeath { get; set; }
         // public Person spouse { get; set; }
         // public Person mother { get; set; }
