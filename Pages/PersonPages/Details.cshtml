@@ -45,15 +45,16 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Person.AgeAtDeath)
                 </th>
-        </thead>
+</thead>
         <tbody>
 
             <tr>
                 <td>
-                    @Html.DisplayFor(model => model.Person.Upload)
+                    <img src="/Uploads/@Model.Person.Upload" width="50px" height="50px" />
                 </td>
-                <td>
+                <td onclick="location.href = '@(Url.Page("Details", new { id = Model.Person, area = "Person" }))'"> 
                     @Html.DisplayFor(modelItem => Model.Person.Spouse)
+                </td>
                 <td>
                     @Html.DisplayFor(modelItem => Model.Person.DateOfMarriage)
                 </td>
@@ -68,12 +69,11 @@
                     @Html.DisplayFor(modelItem => Model.Person.Siblings)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => Model.Person.CensusRecords)
+                    <img src="~/Uploads/@Model.Person.CensusRecords" width="50px" height="50px" />
                 </td>
-                @*<td>
-                        @Html.DisplayNameFor(modelItem => item.AgeOfDeath)
-                    </td>*@
-            </tr>
+              <td>
+                  @Html.DisplayFor(modelItem => Model.Person.AgeAtDeath)
+              </td>
 
 
 
