@@ -37,7 +37,22 @@
                     @Html.DisplayNameFor(model => model.Person.Father)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Person.GrandMother)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.GrandFather)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.GreatGrandMother)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.GreatGrandFather)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Person.Siblings)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.Children)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Person.CensusRecords)
@@ -52,7 +67,7 @@
                 <td>
                     <img src="/Uploads/@Model.Person.Upload" width="50px" height="50px" />
                 </td>
-                <td onclick="location.href = '@(Url.Page("Details", new { id = Model.Person, area = "Person" }))'"> 
+                <td onclick="location.href = '@(Url.Page("Details", new { id = Model.Person, area = "Person" }))'">
                     @Html.DisplayFor(modelItem => Model.Person.Spouse)
                 </td>
                 <td>
@@ -66,19 +81,34 @@
                     @Html.DisplayFor(modelItem => Model.Person.Father)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => Model.Person.GrandMother)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Person.GrandFather)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Person.GreatGrandMother)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Person.GreatGrandFather)
+                </td>
+                <td>
                     @Html.DisplayFor(modelItem => Model.Person.Siblings)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Person.Children)
                 </td>
                 <td>
                     <img src="~/Uploads/@Model.Person.CensusRecords" width="50px" height="50px" />
                 </td>
-              <td>
-                  @Html.DisplayFor(modelItem => Model.Person.AgeAtDeath)
-              </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model.Person.AgeAtDeath)
+                </td>
 
 
 
-            <div>
-                <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
-                <a asp-page="./Index">Back to List</a>
-            </div>
-    </table>
+                <div>
+                    <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
+                    <a asp-page="./Index">Back to List</a>
+                </div>
+</table>

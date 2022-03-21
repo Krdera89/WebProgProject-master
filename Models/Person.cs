@@ -33,6 +33,16 @@ namespace WebProgProject.Models
         public string Mother { get; set; }
         public string Father { get; set; }
         public string Siblings { get; set; }
+        public string Children { get; set; }
+        [Display(Name = "Grand Mother")]
+        public string GrandMother { get; set; }
+        [Display(Name = "Grand Father")]
+        public string GrandFather { get; set; }
+        [Display(Name = "Great Grand Mother")]
+        public string GreatGrandMother { get; set; }
+        [Display(Name = "Great Grand Father")]
+        public string GreatGrandFather { get; set; }
+
         public string Title { get; set; }
         public string Job { get; set; }
         [Display(Name = "Date Of Birth")]
@@ -55,6 +65,9 @@ namespace WebProgProject.Models
         // public Person spouse { get; set; }
         // public Person mother { get; set; }
         // public Person father { get; set; }
+        [Display(Name = "Date Of Burial")]
+        public DateTime BurialDate { get; set; }
+        [Display(Name = "Gender")]
         public string gender { get; set; }
         public List<Person> survivedBy = new List<Person>();
         public List<Person> children = new List<Person>();

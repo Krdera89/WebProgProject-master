@@ -111,7 +111,9 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Person[0].gender)
                 </th>
-                <th></th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person[0].BurialDate)
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -119,7 +121,7 @@
             {
             <tr>
                 <td>
-                    <img src="/Uploads/@item.Upload" width="50px" height="50px"/> 
+                    <img src="/Uploads/@item.Upload" width="50px" height="50px" />
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MaidenName)
@@ -154,7 +156,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.gender)
                 </td>
-                
+                <td>
+                    @Html.DisplayFor(modelItem => item.BurialDate)
+                </td>
+
                 <td>
                     <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a> |
                     <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a> |
