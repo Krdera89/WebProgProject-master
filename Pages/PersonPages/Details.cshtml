@@ -67,8 +67,9 @@
                 <td>
                     <img src="/Uploads/@Model.Person.Upload" width="50px" height="50px" />
                 </td>
-                <td onclick="location.href = '@(Url.Page("Details", new { id = Model.Person, area = "Person" }))'">
+                <td> <a asp-page="/PersonPages/Details" asp-route-id="@Model.Person.SpouseID">
                     @Html.DisplayFor(modelItem => Model.Person.Spouse)
+                </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => Model.Person.DateOfMarriage)

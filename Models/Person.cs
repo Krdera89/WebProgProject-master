@@ -17,6 +17,7 @@ namespace WebProgProject.Models
         public Person() { }
         [Key]
         public int id { get; set; }
+        public int SpouseID { get; set; }
         [Display(Name = "Census Records")]
         public string CensusRecords{get;set;}
         public string Upload { get; set; }
