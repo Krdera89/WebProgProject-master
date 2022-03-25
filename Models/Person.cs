@@ -20,6 +20,8 @@ namespace WebProgProject.Models
         public int SpouseID { get; set; }
         [Display(Name = "Census Records")]
         public string CensusRecords{get;set;}
+        [Display(Name = "Tombstone Image")]
+        public string Tombstone { get; set; }
         public string Upload { get; set; }
         [Display(Name = "Maiden Name")]
         public string MaidenName { get; set; }

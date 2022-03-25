@@ -25,6 +25,9 @@
                     @Html.DisplayNameFor(model => model.Person.Upload)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Person.Tombstone)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Person.Spouse)
                 <th>
                     @Html.DisplayNameFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
@@ -67,9 +70,13 @@
                 <td>
                     <img src="/Uploads/@Model.Person.Upload" width="50px" height="50px" />
                 </td>
-                <td> <a asp-page="/PersonPages/Details" asp-route-id="@Model.Person.SpouseID">
-                    @Html.DisplayFor(modelItem => Model.Person.Spouse)
-                </a>
+                <td>
+                    <img src="~/Uploads/@Model.Person.Tombstone" width="50px" height="50px" />
+                </td>
+                <td>
+                    <a asp-page="/PersonPages/Index" asp-route-id="@Model.Person.SpouseID">
+                        @Html.DisplayFor(modelItem => Model.Person.Spouse)
+                    </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => Model.Person.DateOfMarriage)
