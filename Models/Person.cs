@@ -33,20 +33,20 @@ namespace WebProgProject.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Spouse { get; set; }
-        [Display(Name = "Maternal Mother")]
+        [Display(Name = "Mother")]
         public string Mother { get; set; }
-        [Display(Name = " Paternal Father")]
+        [Display(Name = "Father")]
         public string Father { get; set; }
         public string Siblings { get; set; }
         [Display(Name = "Biological children")]
         public string Children { get; set; }
-        [Display(Name = "Maternal Grand Mother")]
+        [Display(Name = "Maternal Grandmother")]
         public string GrandMother { get; set; }
-        [Display(Name = " Paternal Grand Father")]
+        [Display(Name = " Maternal Grandfather")]
         public string GrandFather { get; set; }
-        [Display(Name = " Maternal Great Grand Mother")]
+        [Display(Name = " Paternal GrandMother")]
         public string GreatGrandMother { get; set; }
-        [Display(Name = "Paternal Great Grand Father")]
+        [Display(Name = "Paternal Grand Father")]
         public string GreatGrandFather { get; set; }
 
         public string Title { get; set; }
