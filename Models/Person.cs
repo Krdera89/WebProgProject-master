@@ -38,6 +38,7 @@ namespace WebProgProject.Models
         [Display(Name = " Paternal Father")]
         public string Father { get; set; }
         public string Siblings { get; set; }
+        [Display(Name = "Biological children")]
         public string Children { get; set; }
         [Display(Name = "Maternal Grand Mother")]
         public string GrandMother { get; set; }

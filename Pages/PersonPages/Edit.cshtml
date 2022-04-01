@@ -21,7 +21,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="file" asp-for="Person.Tombstone" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+
             <div class="form-group">
                 <label asp-for="Person.Name" class="control-label"></label>
                 <input asp-for="Person.Name" class="form-control" />
@@ -102,6 +102,11 @@
                 <label asp-for="Person.Siblings" class="control-label"></label>
                 <input asp-for="Person.Siblings" class="form-control" />
                 <span asp-validation-for="Person.Siblings" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.children" class="control-label"></label>
+                <input asp-for="Person.children" class="form-control" />
+                <span asp-validation-for="Person.children" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

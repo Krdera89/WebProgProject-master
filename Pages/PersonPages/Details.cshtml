@@ -74,7 +74,7 @@
                     <img src="~/Uploads/@Model.Person.Tombstone" width="50px" height="50px" />
                 </td>
                 <td>
-                    <a asp-page="/PersonPages/Index" asp-route-id="@Model.Person.SpouseID">
+                    <a asp-page="/PersonPages/Index" value="person" id="1" asp-route-id="@Model.Person.id">
                         @Html.DisplayFor(modelItem => Model.Person.Spouse)
                     </a>
                 </td>
