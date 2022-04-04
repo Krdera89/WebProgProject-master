@@ -51,12 +51,12 @@ namespace WebProgProject.Models
         public string Title { get; set; }
         public string Job { get; set; }
         [Display(Name = "Date Of Birth")]
-        public DateTime DateOfBirth { get; set; }
+        public string DateOfBirth { get; set; }
         [Display(Name = "Date Of Marriage")]
-        public DateTime DateOfMarriage { get; set; } //Date of marriage
+        public string DateOfMarriage { get; set; } //Date of marriage
 
         [Display(Name = "Age At Death")]
-        public DateTime AgeAtDeath { get; set; }
+        public string AgeAtDeath { get; set; }
         [Display(Name = "Birth Place")]
         public string BirthPlace { get; set; }
         [Display(Name = "Death Place")]
@@ -66,7 +66,7 @@ namespace WebProgProject.Models
         public string DeathCause { get; set; }
 
         [Display(Name = "Date Of Death")]
-        public DateTime DateOfDeath { get; set; }
+        public string DateOfDeath { get; set; }
         // public Person spouse { get; set; }
         // public Person mother { get; set; }
         // public Person father { get; set; }
