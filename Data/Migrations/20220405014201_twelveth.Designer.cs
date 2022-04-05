@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgProject.Data;
 
 namespace WebProgProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220405014201_twelveth")]
+    partial class twelveth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -250,8 +252,8 @@ namespace WebProgProject.Data.Migrations
                     b.Property<string>("BirthPlace")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BurialDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("BurialDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CensusRecords")
                         .HasColumnType("nvarchar(max)");

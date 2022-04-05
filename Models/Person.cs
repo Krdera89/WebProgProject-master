@@ -52,7 +52,7 @@ namespace WebProgProject.Models
         public string Job { get; set; }
         [Display(Name = "Date Of Birth")]
         public string DateOfBirth { get; set; }
-        [Display(Name = "Date Of Marriage")]
+        [Display(Name = "Marriage")]
         public string DateOfMarriage { get; set; } //Date of marriage
 
         [Display(Name = "Age At Death")]
@@ -71,7 +71,7 @@ namespace WebProgProject.Models
         // public Person mother { get; set; }
         // public Person father { get; set; }
         [Display(Name = "Date Of Burial")]
-        public DateTime BurialDate { get; set; }
+        public string BurialDate { get; set; }
         [Display(Name = "Gender")]
         public string gender { get; set; }
         public List<Person> survivedBy = new List<Person>();
