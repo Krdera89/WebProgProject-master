@@ -73,10 +73,18 @@
                 <td>
                     <img src="~/Uploads/@Model.Person.Tombstone" width="50px" height="50px" />
                 </td>
-                <td>
-                    <a asp-page="/PersonPages/Index" value="person" id="1" asp-route-id="@Model.Person.id">
+                <td> @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
+                {
+
+
+                    <a asp-page="/PersonPages/Details"  asp-route-id="@Model.Person.SpouseID">
                         @Html.DisplayFor(modelItem => Model.Person.Spouse)
                     </a>
+                }
+                else
+            {
+                
+            }
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => Model.Person.DateOfMarriage)
