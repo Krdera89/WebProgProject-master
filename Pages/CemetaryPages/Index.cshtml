@@ -5,50 +5,68 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Is Northern Kentucky the home of your Ancestors? Do you have a relative that needs a cemetery home? Fill out our form to have a fallen ancestor or family member burried here at St.John Cemetery in Fort Mitchelle, Ky.</h1>
+<h1 fontsize="2">Was Northern Kentucky the home of your Ancestor? Do you know anyone that needs a cemetery home? Fill out our form to have a fallen ancestor burried here at St.John Cemetery in Ft. Mitchell, Ky. </h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<form method="post">
 
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Find by Cemetary Name:
-            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
-        </p>
-    </div>
+    First name:<br />
+
+    <input name="FirstName" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+
+    Last Name:<br />
+
+    <input name="LastName" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+
+    Email address:<br />
+
+    <input name="email" type="email" class="form-control input-lg" required autofocus />
+
+    <br />
+    Phone Number:<br />
+
+    <input name="PhoneNumber" type="number" class="form-control input-lg" required autofocus />
+
+    <br />
+
+    Current address:<br />
+
+    <input name="Address" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+    City:<br />
+
+    <input name="City" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+    State:<br />
+
+    <input name="State" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+    Zip code:<br />
+
+    <input name="ZipCode" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+
+    Burial Date:<br />
+
+    <input name="BurialDate" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+
+    Death date:<br />
+
+    <input name="DeathDate" type="text" class="form-control input-lg" required autofocus />
+
+    <br />
+
+    <input type="submit" class="btn btn-info" />
+
 </form>
+   
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Cemetary[0].name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Cemetary[0].address)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model.Cemetary) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.address)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
