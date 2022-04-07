@@ -39,14 +39,57 @@ namespace WebProgProject.Models
         public string Father { get; set; }
         public string Siblings { get; set; }
         public string Children { get; set; }
-        [Display(Name = "Maternal Grand Mother")]
-        public string GrandMother { get; set; }
-        [Display(Name = " Paternal Grand Father")]
-        public string GrandFather { get; set; }
-        [Display(Name = " Maternal Great Grand Mother")]
-        public string GreatGrandMother { get; set; }
-        [Display(Name = "Paternal Great Grand Father")]
-        public string GreatGrandFather { get; set; }
+        [Display(Name ="Paternal Grandfather")]
+        public string PatGpa { get; set; }
+        [Display(Name = "Paternal Grandmother")]
+        public string PatGma { get; set; }
+        [Display(Name = "Maternal Grandfather")]
+        public string MatGpa { get; set; }
+        [Display(Name = "Maternal Grandmother")]
+        public string MatGma { get; set; }
+        [Display(Name = "Paternal Great Grandfather")]
+        public string PatGreatGpa { get; set; }
+        [Display(Name = "Paternal Great Grandmother")]
+        public string PatGreatGma { get; set; }
+        [Display(Name = "Maternal Great Grandfather")]
+        public string MatGreatGpa { get; set; }
+        [Display(Name = "Maternal Great Grandmother")]
+        public string MatGreatGma { get; set; }
+        [Display(Name = "Burial Year")]
+        public string BurialYear { get; set; }
+        [Display(Name = "Census Book Number")]
+        public string CensusBookNumber { get; set; }
+        [Display(Name = "Census Page Number")]
+        public string CensusPageNumber { get; set; }
+        [Display(Name = "Census Entry Number")]
+        public string CensusEntryNumber { get; set; }
+        [Display(Name = "Orientation In Lot")]
+        public string OrientationInLot { get; set; }
+        [Display(Name = "Lot Number")]
+        public string LotNumber { get; set; }
+        [Display(Name = "Mausoleum Corridor")]
+        public string MausCorridor { get; set; }
+        [Display(Name = "Mausoleum Tier")]
+        public string MausTier { get; set; }
+        [Display(Name = "Grave Number in Crypt")]
+        public string GraveNumInCrypt { get; set; }
+        public string Street { get; set; }
+        [Display(Name = "Section Number")]
+        public string SectionNum { get; set; }
+        [Display(Name = "Immigration Year")]
+        public string ImmigrationYear { get; set; }
+        [Display(Name = "GPS Reading at Gravesite")]
+        public string GPSGravesite { get; set; }
+
+
+        //[Display(Name = "Maternal Grand Mother")]
+        //public string GrandMother { get; set; }
+        //[Display(Name = " Paternal Grand Father")]
+        //public string GrandFather { get; set; }
+        //[Display(Name = " Maternal Great Grand Mother")]
+        //public string GreatGrandMother { get; set; }
+        //[Display(Name = "Paternal Great Grand Father")]
+        //public string GreatGrandFather { get; set; }
 
         public string Title { get; set; }
         public string Job { get; set; }
@@ -61,7 +104,7 @@ namespace WebProgProject.Models
         public string BirthPlace { get; set; }
         [Display(Name = "Death Place")]
         public string DeathPlace { get; set; }
-        public string Profession { get; set; }
+        //public string Profession { get; set; }
         [Display(Name = "Death Cause")]
         public string DeathCause { get; set; }
 

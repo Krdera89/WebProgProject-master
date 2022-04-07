@@ -2,3 +2,5 @@
 
 
 Insert into dbo.Person(id,DateOfBirth,DateOfDeath,LastName,FirstName,Name,MiddleName,MaidenName,Father,Mother,Spouse,DateOfMarriage,DeathCause,BirthPlace,Job,DeathPlace,Siblings,notes) values(19710088,'18860219','19711021','Abel','Mary','Mary Abel','Elizabeth','Hoppenjans','William (Wilhelm) Hoppenjans','Bernadina (Dena) Witte','Sebastian Abel (died betw. 1920 and 1930 census; b. 5/31/1876, d. 7/23/1921, buried-Spring Grove Cem., Cin., OH)','19100803','N/A','Kentucky','blank job','Oxford, OH','Elizabeth', 'blank 1');
+
+Insert into dbo.Person(id,BurialYear,CensusBookNumber,CensusPageNumber,CensusEntryNumber,BurialDate,DateOfBirth,DateOfDeath,LastName,FirstName,Name,MiddleName,MaidenName,AgeAtDeath,OrientationInLot,LotNumber,MausCorridor,MausTier,GraveNumInCrypt,Street,SectionNum,Father,Mother,Spouse,DateOfMarriage,ImmigrationYear,DeathCause,BirthPlace,Job,DeathPlace,Siblings,GPSGravesite,PatGpa,PatGma,MatGpa,MatGma,PatGreatGpa,PatGreatGma,MatGreatGpa,MatGreatGma) values('19071651','1907','3','49','1651','?','','','?','?','? ?','?','','?','?','?','','','','?','','','','','','','','','','','','','','','','','','','','');

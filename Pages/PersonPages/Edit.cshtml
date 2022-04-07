@@ -21,7 +21,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="file" asp-for="Person.Tombstone" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            
+
             <div class="form-group">
                 <label asp-for="Person.Name" class="control-label"></label>
                 <input asp-for="Person.Name" class="form-control" />
@@ -33,15 +33,56 @@
                 <span asp-validation-for="Person.MaidenName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Person.FirstName" class="control-label"></label>
+                <input asp-for="Person.FirstName" class="form-control" />
+                <span asp-validation-for="Person.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MiddleName" class="control-label"></label>
+                <input asp-for="Person.MiddleName" class="form-control" />
+                <span asp-validation-for="Person.MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.LastName" class="control-label"></label>
+                <input asp-for="Person.LastName" class="form-control" />
+                <span asp-validation-for="Person.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.CensusBookNumber" class="control-label"></label>
+                <input asp-for="Person.CensusBookNumber" class="form-control" />
+                <span asp-validation-for="Person.CensusBookNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.CensusPageNumber" class="control-label"></label>
+                <input asp-for="Person.CensusPageNumber" class="form-control" />
+                <span asp-validation-for="Person.CensusPageNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.CensusEntryNumber" class="control-label"></label>
+                <input asp-for="Person.CensusEntryNumber" class="form-control" />
+                <span asp-validation-for="Person.CensusEntryNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Spouse" class="control-label"></label>
+                <input asp-for="Person.Spouse" class="form-control" />
+                <span asp-validation-for="Person.Spouse" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Title" class="control-label"></label>
+                <input asp-for="Person.Title" class="form-control" />
+                <span asp-validation-for="Person.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Job" class="control-label"></label>
+                <input asp-for="Person.Job" class="form-control" />
+                <span asp-validation-for="Person.Job" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Person.DateOfBirth" class="control-label"></label>
                 <input asp-for="Person.DateOfBirth" class="form-control" />
                 <span asp-validation-for="Person.DateOfBirth" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Person.DateOfDeath" class="control-label"></label>
-                <input asp-for="Person.DateOfDeath" class="form-control" />
-                <span asp-validation-for="Person.DateOfDeath" class="text-danger"></span>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Person.BirthPlace" class="control-label"></label>
                 <input asp-for="Person.BirthPlace" class="form-control" />
@@ -52,16 +93,11 @@
                 <input asp-for="Person.DeathPlace" class="form-control" />
                 <span asp-validation-for="Person.DeathPlace" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Person.Spouse" class="control-label"></label>
-                <input asp-for="Person.Spouse" class="form-control" />
-                <span asp-validation-for="Person.Spouse" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Person.Profession" class="control-label"></label>
-                <input asp-for="Person.Profession" class="form-control" />
-                <span asp-validation-for="Person.Profession" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+            <label asp-for="Person.Profession" class="control-label"></label>
+            <input asp-for="Person.Profession" class="form-control" />
+            <span asp-validation-for="Person.Profession" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Person.DeathCause" class="control-label"></label>
                 <input asp-for="Person.DeathCause" class="form-control" />
@@ -72,41 +108,150 @@
                 <input asp-for="Person.gender" class="form-control" />
                 <span asp-validation-for="Person.gender" class="text-danger"></span>
             </div>
-            Census records
             <div class="form-group">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="file" asp-for="Person.CensusRecords" class="text-danger" />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <label asp-for="Person.DateOfDeath" class="control-label"></label>
+                <input asp-for="Person.DateOfDeath" class="form-control" />
+                <span asp-validation-for="Person.DateOfDeath" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GrandMother" class="control-label"></label>
-                <input asp-for="Person.GrandMother" class="form-control" />
-                <span asp-validation-for="Person.GrandMother" class="text-danger"></span>
+                <label asp-for="Person.DateOfMarriage" class="control-label"></label>
+                <input asp-for="Person.DateOfMarriage" class="form-control" />
+                <span asp-validation-for="Person.DateOfMarriage" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GrandFather" class="control-label"></label>
-                <input asp-for="Person.GrandFather" class="form-control" />
-                <span asp-validation-for="Person.GrandFather" class="text-danger"></span>
+                <label asp-for="Person.BurialDate" class="control-label"></label>
+                <input asp-for="Person.BurialDate" class="form-control" />
+                <span asp-validation-for="Person.BurialDate" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GreatGrandMother" class="control-label"></label>
-                <input asp-for="Person.GreatGrandMother" class="form-control" />
-                <span asp-validation-for="Person.GreatGrandMother" class="text-danger"></span>
+                <label asp-for="Person.BurialYear" class="control-label"></label>
+                <input asp-for="Person.BurialYear" class="form-control" />
+                <span asp-validation-for="Person.BurialYear" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GreatGrandFather" class="control-label"></label>
-                <input asp-for="Person.GreatGrandFather" class="form-control" />
-                <span asp-validation-for="Person.GreatGrandFather" class="text-danger"></span>
+                <label asp-for="Person.Mother" class="control-label"></label>
+                <input asp-for="Person.Mother" class="form-control" />
+                <span asp-validation-for="Person.Mother" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.Siblings" class="control-label"></label>
-                <input asp-for="Person.Siblings" class="form-control" />
-                <span asp-validation-for="Person.Siblings" class="text-danger"></span>
+                <label asp-for="Person.Father" class="control-label"></label>
+                <input asp-for="Person.Father" class="form-control" />
+                <span asp-validation-for="Person.Father" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="Person.PatGpa" class="control-label"></label>
+                <input asp-for="Person.PatGpa" class="form-control" />
+                <span asp-validation-for="Person.PatGpa" class="text-danger"></span>
             </div>
-        </form>
+            <div class="form-group">
+                <label asp-for="Person.PatGma" class="control-label"></label>
+                <input asp-for="Person.PatGma" class="form-control" />
+                <span asp-validation-for="Person.PatGma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.PatGreatGpa" class="control-label"></label>
+                <input asp-for="Person.PatGreatGpa" class="form-control" />
+                <span asp-validation-for="Person.PatGreatGpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.PatGreatGma" class="control-label"></label>
+                <input asp-for="Person.PatGreatGma" class="form-control" />
+                <span asp-validation-for="Person.PatGreatGma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGpa" class="control-label"></label>
+                <input asp-for="Person.MatGpa" class="form-control" />
+                <span asp-validation-for="Person.MatGpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGma" class="control-label"></label>
+                <input asp-for="Person.MatGma" class="form-control" />
+                <span asp-validation-for="Person.MatGma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGreatGpa" class="control-label"></label>
+                <input asp-for="Person.MatGreatGpa" class="form-control" />
+                <span asp-validation-for="Person.MatGreatGpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGreatGma" class="control-label"></label>
+                <input asp-for="Person.MatGreatGma" class="form-control" />
+                <span asp-validation-for="Person.MatGreatGma" class="text-danger"></span>
+                Census records
+                <div class="form-group">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="file" asp-for="Person.CensusRecords" class="text-danger" />
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                </div>
+                @*<div class="form-group">
+            <label asp-for="Person.GrandMother" class="control-label"></label>
+            <input asp-for="Person.GrandMother" class="form-control" />
+            <span asp-validation-for="Person.GrandMother" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.GrandFather" class="control-label"></label>
+            <input asp-for="Person.GrandFather" class="form-control" />
+            <span asp-validation-for="Person.GrandFather" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.GreatGrandMother" class="control-label"></label>
+            <input asp-for="Person.GreatGrandMother" class="form-control" />
+            <span asp-validation-for="Person.GreatGrandMother" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.GreatGrandFather" class="control-label"></label>
+            <input asp-for="Person.GreatGrandFather" class="form-control" />
+            <span asp-validation-for="Person.GreatGrandFather" class="text-danger"></span>
+        </div>*@
+                <div class="form-group">
+                    <label asp-for="Person.Siblings" class="control-label"></label>
+                    <input asp-for="Person.Siblings" class="form-control" />
+                    <span asp-validation-for="Person.Siblings" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.OrientationInLot" class="control-label"></label>
+                    <input asp-for="Person.OrientationInLot" class="form-control" />
+                    <span asp-validation-for="Person.OrientationInLot" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.LotNumber" class="control-label"></label>
+                    <input asp-for="Person.LotNumber" class="form-control" />
+                    <span asp-validation-for="Person.LotNumber" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.MausCorridor" class="control-label"></label>
+                    <input asp-for="Person.MausCorridor" class="form-control" />
+                    <span asp-validation-for="Person.MausCorridor" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.MausTier" class="control-label"></label>
+                    <input asp-for="Person.MausTier" class="form-control" />
+                    <span asp-validation-for="Person.MausTier" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.GraveNumInCrypt" class="control-label"></label>
+                    <input asp-for="Person.GraveNumInCrypt" class="form-control" />
+                    <span asp-validation-for="Person.GraveNumInCrypt" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.Street" class="control-label"></label>
+                    <input asp-for="Person.Street" class="form-control" />
+                    <span asp-validation-for="Person.Street" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.SectionNum" class="control-label"></label>
+                    <input asp-for="Person.SectionNum" class="form-control" />
+                    <span asp-validation-for="Person.SectionNum" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Person.GPSGravesite" class="control-label"></label>
+                    <input asp-for="Person.GPSGravesite" class="form-control" />
+                    <span asp-validation-for="Person.GPSGravesite" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
+</form>
     </div>
 </div>
 

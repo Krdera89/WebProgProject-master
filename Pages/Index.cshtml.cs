@@ -6,6 +6,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
+using WebProgProject.Models;
+using Microsoft.EntityFrameworkCore;
+using WebProgProject.Data;
+
 
 namespace WebProgProject.Pages
 {
@@ -23,5 +28,39 @@ namespace WebProgProject.Pages
         {
 
         }
+        private readonly WebProgProject.Data.ApplicationDbContext _context;
+        private readonly IConfiguration Configuration;
+
+        public IndexModel(WebProgProject.Data.ApplicationDbContext context, IConfiguration configuration)
+        {
+            _context = context;
+            Configuration = configuration;
+        }
+
+        public string NameSort { get; set; }
+        public string DateSort { get; set; }
+        public string CurrentFilter { get; set; }
+        public string CurrentSort { get; set; }
+
+
+        public PaginatedList<Person> persons { get; set; }
+        public async Task OnGetAsync(string sortOrder,
+            string currentFilter, string searchString, int? pageIndex)
+        {
+            CurrentSort = sortOrder;
+            NameSort = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            DateSort = sortOrder == "Date" ? "date_desc" : "Date";
+            if (searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+        }
+        //IQueryable<Person> personQ = from p in select p;
+        //int pageSize = 25;
+        //Persons = await PaginatedList<Person>.CreateAsync(personQ.AsNoTracking(), pageIndex ?? 1, pageSize);
     }
 }
