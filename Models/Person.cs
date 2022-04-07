@@ -33,12 +33,14 @@ namespace WebProgProject.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
         public string Spouse { get; set; }
-        [Display(Name = "Maternal Mother")]
+        [Display(Name = "Mother")]
         public string Mother { get; set; }
-        [Display(Name = " Paternal Father")]
+        [Display(Name = "Father")]
         public string Father { get; set; }
         public string Siblings { get; set; }
+        [Display(Name = "Biological children")]
         public string Children { get; set; }
+
         [Display(Name ="Paternal Grandfather")]
         public string PatGpa { get; set; }
         [Display(Name = "Paternal Grandmother")]
@@ -90,6 +92,8 @@ namespace WebProgProject.Models
         //public string GreatGrandMother { get; set; }
         //[Display(Name = "Paternal Great Grand Father")]
         //public string GreatGrandFather { get; set; }
+
+
 
         public string Title { get; set; }
         public string Job { get; set; }
