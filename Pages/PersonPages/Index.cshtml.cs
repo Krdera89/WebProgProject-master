@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using WebProgProject.Data;
 using WebProgProject.Models;
+using Microsoft.Extensions.Configuration;
 
 namespace WebProgProject.Pages.PersonPages
 {
@@ -15,13 +16,17 @@ namespace WebProgProject.Pages.PersonPages
     public class IndexModel : PageModel
     {
         private readonly WebProgProject.Data.ApplicationDbContext _context;
+        private readonly IConfiguration Configuration;
 
-        public IndexModel(WebProgProject.Data.ApplicationDbContext context)
+        public IndexModel(WebProgProject.Data.ApplicationDbContext context, IConfiguration configuration)
         {
             _context = context;
+            Configuration = configuration;
         }
 
-        public IList<Person> Person { get;set; }
+        //public IList<Person> Person { get; set; }
+        public PaginatedList<Person> Persons { get; set; }
+
 
         
         public string LNameSort { get; set; }
@@ -31,9 +36,9 @@ namespace WebProgProject.Pages.PersonPages
         public string CurrentFilter { get; set; }
         public string CurrentSort { get; set; }
 
-        public IList<Person> People { get; set; }
+        //public IList<Person> People { get; set; }
 
-        public async Task OnGetAsync(string sortOrder, string searchString)
+        public async Task OnGetAsync(string sortOrder, string searchString, string currentFilter, int? pageIndex)
         {
            
             LNameSort = String.IsNullOrEmpty(sortOrder) ? "Lname_desc" : "";
@@ -43,8 +48,15 @@ namespace WebProgProject.Pages.PersonPages
 
             IQueryable<Person> personIQ = from s in _context.Person
                                           select s;
-
-            CurrentFilter = searchString;
+            if(searchString != null)
+            {
+                pageIndex = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+            currentFilter = searchString;
 
             if(!String.IsNullOrEmpty(searchString))
             {
@@ -77,8 +89,11 @@ namespace WebProgProject.Pages.PersonPages
                     personIQ = personIQ.OrderBy(s => s.Name);
                     break;
             }
-
-            People = await personIQ.AsNoTracking().ToListAsync();
+            var pageSize = Configuration.GetValue("PageSize", 4);
+            //int pageSize = 10;
+            Persons = await PaginatedList<Person>.CreateAsync(personIQ.AsNoTracking(), pageIndex ?? 1, pageSize);
+            
+            //Person = await personIQ.AsNoTracking().ToListAsync();
         }
     }
 }

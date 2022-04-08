@@ -6,9 +6,7 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details about @Model.Person.LastName, @Model.Person.FirstName</h1> 
-=======
-<h1>Details about @Model.Person.LastName, @Model.Person.FirstName </h1> 
+<h1>Details about @Model.Person.LastName, @Model.Person.FirstName</h1>
 
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
@@ -162,6 +160,8 @@
                 <th>
                     @Html.DisplayNameFor(model => model.Person.CensusRecords)
                 </th>
+    
+ </div>
 
 </thead>
         <tbody>
@@ -243,10 +243,12 @@
                 <td>
                     @Html.DisplayFor(model => model.Person.GPSGravesite)
                 </td>
-                <td>
-                    <a asp-page="/PersonPersonPages/Details" asp-route-id="@Model.Person.SpouseID">
+                
+                
+                    
 
-                <td> @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
+                <td><a asp-page="/PersonPersonPages/Details" asp-route-id="@Model.Person.SpouseID"></a>
+                @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
                 {
 
 
@@ -260,6 +262,7 @@
                 
             }
                 </td>
+                
                 <td>
                     @Html.DisplayFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
                 </td>

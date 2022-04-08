@@ -59,7 +59,7 @@ namespace WebProgProject.Pages
                 searchString = currentFilter;
             }
         }
-        //IQueryable<Person> personQ = from p in select p;
+        //IQueryable<Person> personQ = from p in _context.Person select p;
         //int pageSize = 25;
         //Persons = await PaginatedList<Person>.CreateAsync(personQ.AsNoTracking(), pageIndex ?? 1, pageSize);
     }
