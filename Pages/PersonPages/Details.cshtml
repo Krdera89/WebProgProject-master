@@ -244,10 +244,12 @@
                     @Html.DisplayFor(model => model.Person.GPSGravesite)
                 </td>
                 
-                
+                <td>
+                    @Html.DisplayFor(model => model.Person.Spouse)
+                </td>
                     
 
-                <td><a asp-page="/PersonPersonPages/Details" asp-route-id="@Model.Person.SpouseID"></a>
+                @*<td><a asp-page="/PersonPersonPages/Details" asp-route-id="@Model.Person.SpouseID"></a>
                 @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
                 {
 
@@ -261,7 +263,7 @@
             {
                 
             }
-                </td>
+                </td>*@
                 
                 <td>
                     @Html.DisplayFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
@@ -302,6 +304,10 @@
                 <td>
                     @Html.DisplayFor(model => model.Person.MatGreatGma)
                 </td>
+
+                @*add "other info here ! create new field and update some other things*@
+
+
                 @*<td>
             @Html.DisplayFor(modelItem => Model.Person.GrandMother)
         </td>
