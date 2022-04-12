@@ -40,9 +40,10 @@ namespace WebProgProject.Pages.PersonPages
 
         public async Task OnGetAsync(string sortOrder, string searchString, string currentFilter, int? pageIndex)
         {
-           
+            CurrentSort = sortOrder;
+            CurrentFilter = searchString;
             LNameSort = String.IsNullOrEmpty(sortOrder) ? "Lname_desc" : "";
-            FNameSort = String.IsNullOrEmpty(sortOrder) ? "Fname_desc" : "";
+            FNameSort = String.IsNullOrEmpty(sortOrder) ? "Fname_desc" : "Fname_desc";
             BirthDateSort = sortOrder == "Birthdate" ? "Birthdate_desc" : "Birthdate";
             DeathDateSort = sortOrder == "DeathDate" ? "date_desc" : "DeathDate";
 
