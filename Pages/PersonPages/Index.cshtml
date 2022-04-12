@@ -4,6 +4,9 @@
 @{
     ViewData["Title"] = "People";
 }
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 
 <h1>Discover your Ancestors</h1>
 
@@ -121,9 +124,15 @@
                 </td>
 
                 <td>
-                    <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-page="./Edit" asp-route-id="@item.id">Edit</a>
+                    }
+                    <a asp-page="./Details" asp-route-id="@item.id">Details</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                    }
                 </td>
             </tr>
         }

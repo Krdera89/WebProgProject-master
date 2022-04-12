@@ -74,6 +74,12 @@
                     @Html.DisplayNameFor(model => model.Person.BurialYear)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Person.FuneralHome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.TombstoneInscription)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Person.OrientationInLot)
                 </th>
                 <th>
@@ -99,7 +105,7 @@
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Person.Spouse)
-                    </th>
+                </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
                 </th>
@@ -113,7 +119,13 @@
                     @Html.DisplayNameFor(model => model.Person.Mother)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Person.BPOM)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Person.Father)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Person.BPOF)
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Person.PatGpa)
@@ -158,10 +170,13 @@
                     @Html.DisplayNameFor(model => model.Person.Children)
                 </th>
                 <th>
+                    @Html.DisplayNameFor(model => model.Person.notes)
+                </th>
+                <th>
                     @Html.DisplayNameFor(model => model.Person.CensusRecords)
                 </th>
-    
- </div>
+
+</div>
 
 </thead>
         <tbody>
@@ -220,6 +235,12 @@
                     @Html.DisplayFor(model => model.Person.BurialYear)
                 </td>
                 <td>
+                    @Html.DisplayFor(model => model.Person.FuneralHome)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Person.TombstoneInscription)
+                </td>
+                <td>
                     @Html.DisplayFor(model => model.Person.OrientationInLot)
                 </td>
                 <td>
@@ -243,28 +264,28 @@
                 <td>
                     @Html.DisplayFor(model => model.Person.GPSGravesite)
                 </td>
-                
+
                 <td>
                     @Html.DisplayFor(model => model.Person.Spouse)
                 </td>
-                    
+
 
                 @*<td><a asp-page="/PersonPersonPages/Details" asp-route-id="@Model.Person.SpouseID"></a>
-                @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
-                {
-
-
-                    <a asp-page="/PersonPages/Details"  asp-route-id="@Model.Person.SpouseID">
-
-                        @Html.DisplayFor(modelItem => Model.Person.Spouse)
-                    </a>
-                }
-                else
+            @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
             {
-                
+
+
+                <a asp-page="/PersonPages/Details"  asp-route-id="@Model.Person.SpouseID">
+
+                    @Html.DisplayFor(modelItem => Model.Person.Spouse)
+                </a>
             }
-                </td>*@
-                
+            else
+        {
+
+        }
+            </td>*@
+
                 <td>
                     @Html.DisplayFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
                 </td>
@@ -278,7 +299,13 @@
                     @Html.DisplayFor(model => model.Person.Mother)
                 </td>
                 <td>
+                    @Html.DisplayFor(model => model.Person.BPOM)
+                </td>
+                <td>
                     @Html.DisplayFor(model => model.Person.Father)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Person.BPOF)
                 </td>
                 <td>
                     @Html.DisplayFor(model => model.Person.PatGpa)
@@ -327,11 +354,14 @@
                     @Html.DisplayFor(modelItem => Model.Person.Children)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => Model.Person.notes)
+                </td>
+                <td>
                     <img src="~/Uploads/@Model.Person.CensusRecords" width="50px" height="50px" />
                 </td>
                 @*<td>
-                    @Html.DisplayFor(modelItem => Model.Person.AgeAtDeath)
-                </td>*@
+            @Html.DisplayFor(modelItem => Model.Person.AgeAtDeath)
+        </td>*@
 
 
 
@@ -339,4 +369,4 @@
                     <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
                     <a asp-page="./Index">Back to List</a>
                 </div>
-</table>
+                </table>

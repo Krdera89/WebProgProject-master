@@ -122,13 +122,22 @@ namespace WebProgProject.Models
         [Display(Name = "Gender")]
         public string gender { get; set; }
         public List<Person> survivedBy = new List<Person>();
-        public List<Person> children = new List<Person>();
+        //public List<Person> children = new List<Person>();
         public string contactPhone { get; set; }
         public string contactAddress { get; set; }
         public string contactEmail { get; set; }
         public int PlotID { get; set; }
         public Plot MyPlot { get; set; }
+        [Display(Name ="Other Information")]
         public string notes { get; set; }
+        [Display(Name ="Birthplace of Father")]
+        public string BPOF { get; set; }
+        [Display(Name = "Birthplace of Mother")]
+        public string BPOM { get; set; }
+        [Display(Name = "Tombstone Inscription")]
+        public string TombstoneInscription { get; set; }
+        [Display(Name = "Funeral Home")]
+        public string FuneralHome { get; set; }
         public ICollection<PicturePerson> PicturePersons { get; set; }
         public List<Picture> Pictures
         {

@@ -1,10 +1,14 @@
-﻿@page 
+﻿@page
+
 @model WebProgProject.Pages.PersonPages.IndexModel
 @{
     ViewData["Title"] = "Home page";
-   
+
 }
- 
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
 
 <center><h1>Welcome to St. John Cemetery!!</h1></center>
 <!-- Slideshow container -->
@@ -161,10 +165,16 @@
                     </td>
 
                     <td>
-                        <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a> |
-                        <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a> |
-                        <a asp-page="./PersonPages/Delete" asp-route-id="@item.id">Delete</a>
-                    </td>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a>
+                        }
+                        <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a>
+                        @if (SignInManager.IsSignedIn(User))
+                        {
+                            <a asp-page="./PersonPages/Delete" asp-route-id="@item.id">Delete</a>
+                        }
+                        </td>
                 </tr>
             }
         </tbody>
