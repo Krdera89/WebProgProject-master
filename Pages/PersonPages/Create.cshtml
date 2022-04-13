@@ -47,6 +47,21 @@
                 <span asp-validation-for="Person.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Person.CensusBookNumber" class="control-label"></label>
+                <input asp-for="Person.CensusBookNumber" class="form-control" />
+                <span asp-validation-for="Person.CensusBookNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.CensusPageNumber" class="control-label"></label>
+                <input asp-for="Person.CensusPageNumber" class="form-control" />
+                <span asp-validation-for="Person.CensusPageNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.CensusEntryNumber" class="control-label"></label>
+                <input asp-for="Person.CensusEntryNumber" class="form-control" />
+                <span asp-validation-for="Person.CensusEntryNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Person.Spouse" class="control-label"></label>
                 <input asp-for="Person.Spouse" class="form-control" />
                 <span asp-validation-for="Person.Spouse" class="text-danger"></span>
@@ -77,11 +92,11 @@
                 <input asp-for="Person.DeathPlace" class="form-control" />
                 <span asp-validation-for="Person.DeathPlace" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Person.Profession" class="control-label"></label>
-                <input asp-for="Person.Profession" class="form-control" />
-                <span asp-validation-for="Person.Profession" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+            <label asp-for="Person.Profession" class="control-label"></label>
+            <input asp-for="Person.Profession" class="form-control" />
+            <span asp-validation-for="Person.Profession" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Person.DeathCause" class="control-label"></label>
                 <input asp-for="Person.DeathCause" class="form-control" />
@@ -108,9 +123,29 @@
                 <span asp-validation-for="Person.BurialDate" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Person.BurialYear" class="control-label"></label>
+                <input asp-for="Person.BurialYear" class="form-control" />
+                <span asp-validation-for="Person.BurialYear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.FuneralHome" class="control-label"></label>
+                <input asp-for="Person.FuneralHome" class="form-control" />
+                <span asp-validation-for="Person.FuneralHome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.TombstoneInscription" class="control-label"></label>
+                <input asp-for="Person.TombstoneInscription" class="form-control" />
+                <span asp-validation-for="Person.TombstoneInscription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Person.Mother" class="control-label"></label>
                 <input asp-for="Person.Mother" class="form-control" />
                 <span asp-validation-for="Person.Mother" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.BPOM" class="control-label"></label>
+                <input asp-for="Person.BPOM" class="form-control" />
+                <span asp-validation-for="Person.BPOM" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Person.Father" class="control-label"></label>
@@ -118,34 +153,125 @@
                 <span asp-validation-for="Person.Father" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GrandMother" class="control-label"></label>
-                <input asp-for="Person.GrandMother" class="form-control" />
-                <span asp-validation-for="Person.GrandMother" class="text-danger"></span>
+                <label asp-for="Person.BPOF" class="control-label"></label>
+                <input asp-for="Person.BPOF" class="form-control" />
+                <span asp-validation-for="Person.BPOF" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GrandFather" class="control-label"></label>
-                <input asp-for="Person.GrandFather" class="form-control" />
-                <span asp-validation-for="Person.GrandFather" class="text-danger"></span>
+                <label asp-for="Person.PatGpa" class="control-label"></label>
+                <input asp-for="Person.PatGpa" class="form-control" />
+                <span asp-validation-for="Person.PatGpa" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GreatGrandMother" class="control-label"></label>
-                <input asp-for="Person.GreatGrandMother" class="form-control" />
-                <span asp-validation-for="Person.GreatGrandMother" class="text-danger"></span>
+                <label asp-for="Person.PatGma" class="control-label"></label>
+                <input asp-for="Person.PatGma" class="form-control" />
+                <span asp-validation-for="Person.PatGma" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.GreatGrandFather" class="control-label"></label>
-                <input asp-for="Person.GreatGrandFather" class="form-control" />
-                <span asp-validation-for="Person.GreatGrandFather" class="text-danger"></span>
+                <label asp-for="Person.PatGreatGpa" class="control-label"></label>
+                <input asp-for="Person.PatGreatGpa" class="form-control" />
+                <span asp-validation-for="Person.PatGreatGpa" class="text-danger"></span>
             </div>
+            <div class="form-group">
+                <label asp-for="Person.PatGreatGma" class="control-label"></label>
+                <input asp-for="Person.PatGreatGma" class="form-control" />
+                <span asp-validation-for="Person.PatGreatGma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGpa" class="control-label"></label>
+                <input asp-for="Person.MatGpa" class="form-control" />
+                <span asp-validation-for="Person.MatGpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGma" class="control-label"></label>
+                <input asp-for="Person.MatGma" class="form-control" />
+                <span asp-validation-for="Person.MatGma" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGreatGpa" class="control-label"></label>
+                <input asp-for="Person.MatGreatGpa" class="form-control" />
+                <span asp-validation-for="Person.MatGreatGpa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MatGreatGma" class="control-label"></label>
+                <input asp-for="Person.MatGreatGma" class="form-control" />
+                <span asp-validation-for="Person.MatGreatGma" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="Person.GrandMother" class="control-label"></label>
+            <input asp-for="Person.GrandMother" class="form-control" />
+            <span asp-validation-for="Person.GrandMother" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.GrandFather" class="control-label"></label>
+            <input asp-for="Person.GrandFather" class="form-control" />
+            <span asp-validation-for="Person.GrandFather" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.GreatGrandMother" class="control-label"></label>
+            <input asp-for="Person.GreatGrandMother" class="form-control" />
+            <span asp-validation-for="Person.GreatGrandMother" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Person.GreatGrandFather" class="control-label"></label>
+            <input asp-for="Person.GreatGrandFather" class="form-control" />
+            <span asp-validation-for="Person.GreatGrandFather" class="text-danger"></span>
+        </div>*@
             <div class="form-group">
                 <label asp-for="Person.Siblings" class="control-label"></label>
                 <input asp-for="Person.Siblings" class="form-control" />
                 <span asp-validation-for="Person.Siblings" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Person.children" class="control-label"></label>
-                <input asp-for="Person.children" class="form-control" />
-                <span asp-validation-for="Person.children" class="text-danger"></span>
+
+                <label asp-for="Person.OrientationInLot" class="control-label"></label>
+                <input asp-for="Person.OrientationInLot" class="form-control" />
+                <span asp-validation-for="Person.OrientationInLot" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.LotNumber" class="control-label"></label>
+                <input asp-for="Person.LotNumber" class="form-control" />
+                <span asp-validation-for="Person.LotNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MausCorridor" class="control-label"></label>
+                <input asp-for="Person.MausCorridor" class="form-control" />
+                <span asp-validation-for="Person.MausCorridor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.MausTier" class="control-label"></label>
+                <input asp-for="Person.MausTier" class="form-control" />
+                <span asp-validation-for="Person.MausTier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.GraveNumInCrypt" class="control-label"></label>
+                <input asp-for="Person.GraveNumInCrypt" class="form-control" />
+                <span asp-validation-for="Person.GraveNumInCrypt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Street" class="control-label"></label>
+                <input asp-for="Person.Street" class="form-control" />
+                <span asp-validation-for="Person.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.SectionNum" class="control-label"></label>
+                <input asp-for="Person.SectionNum" class="form-control" />
+                <span asp-validation-for="Person.SectionNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.GPSGravesite" class="control-label"></label>
+                <input asp-for="Person.GPSGravesite" class="form-control" />
+                <span asp-validation-for="Person.GPSGravesite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Children" class="control-label"></label>
+                <input asp-for="Person.Children" class="form-control" />
+                <span asp-validation-for="Person.Children" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.notes" class="control-label"></label>
+                <input asp-for="Person.notes" class="form-control" />
+                <span asp-validation-for="Person.notes" class="text-danger"></span>
             </div>
             Census records
             <div class="form-group">

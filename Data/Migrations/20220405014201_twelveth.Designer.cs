@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgProject.Data;
 
 namespace WebProgProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220405014201_twelveth")]
+    partial class twelveth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,29 +249,11 @@ namespace WebProgProject.Data.Migrations
                     b.Property<string>("AgeAtDeath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BPOF")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BPOM")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("BirthPlace")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BurialDate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BurialYear")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CensusBookNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CensusEntryNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("CensusPageNumber")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("BurialDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("CensusRecords")
                         .HasColumnType("nvarchar(max)");
@@ -298,16 +282,16 @@ namespace WebProgProject.Data.Migrations
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FuneralHome")
+                    b.Property<string>("GrandFather")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GPSGravesite")
+                    b.Property<string>("GrandMother")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("GraveNumInCrypt")
+                    b.Property<string>("GreatGrandFather")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImmigrationYear")
+                    b.Property<string>("GreatGrandMother")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Job")
@@ -316,28 +300,7 @@ namespace WebProgProject.Data.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("LotNumber")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("MaidenName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MatGma")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MatGpa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MatGreatGma")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MatGreatGpa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MausCorridor")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("MausTier")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("MiddleName")
@@ -349,25 +312,10 @@ namespace WebProgProject.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("OrientationInLot")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatGma")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatGpa")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatGreatGma")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PatGreatGpa")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<int>("PlotID")
                         .HasColumnType("int");
 
-                    b.Property<string>("SectionNum")
+                    b.Property<string>("Profession")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Siblings")
@@ -379,16 +327,10 @@ namespace WebProgProject.Data.Migrations
                     b.Property<int>("SpouseID")
                         .HasColumnType("int");
 
-                    b.Property<string>("Street")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tombstone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TombstoneInscription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Upload")

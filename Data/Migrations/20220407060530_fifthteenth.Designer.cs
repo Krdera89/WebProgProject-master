@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebProgProject.Data;
 
 namespace WebProgProject.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220407060530_fifthteenth")]
+    partial class fifthteenth
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -247,12 +249,6 @@ namespace WebProgProject.Data.Migrations
                     b.Property<string>("AgeAtDeath")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("BPOF")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("BPOM")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("BirthPlace")
                         .HasColumnType("nvarchar(max)");
 
@@ -296,9 +292,6 @@ namespace WebProgProject.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FuneralHome")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("GPSGravesite")
@@ -386,9 +379,6 @@ namespace WebProgProject.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Tombstone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TombstoneInscription")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Upload")
