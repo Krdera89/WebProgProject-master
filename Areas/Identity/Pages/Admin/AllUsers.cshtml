@@ -1,0 +1,21 @@
+﻿@page
+@model WebProgProject.Areas.Identity.Pages.Admin.AllUsersModel
+@{
+}
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model.users)
+        {
+            <tr>
+                <td>@user.Id</td>
+                <td>@user.UserName</td>
+            </tr>
+        }
+    </tbody>
+</table>
