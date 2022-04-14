@@ -15,8 +15,23 @@ namespace WebProgProject.Areas.Identity.Pages.Admin
         {
             userManager = usrMgr;
         }
+        [BindProperty]
+        public string UserName { get; set; }
+        [BindProperty]
+        public string Email { get; set; }
         public void OnGet()
         {
+        }
+        public async Task<IActionResult> OnPost()
+        {
+            if (UserName != null && Email != null)
+            {
+                IdentityUser newUser = new IdentityUser();
+                newUser.UserName = UserName;
+                newUser.Email = Email;
+                IdentityResult result = await userManager.CreateAsync(newUser);
+            }
+            return RedirectToPage("./Users");
         }
     }
 }
