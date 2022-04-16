@@ -11,7 +11,10 @@
 <h1>Discover your Ancestors</h1>
 
 <p>
-    <a asp-page="Create">Create New</a>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-page="Create">Create New</a>
+    }
 </p>
 
 <form asp-page="./Index" method="get">

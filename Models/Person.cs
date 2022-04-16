@@ -59,11 +59,11 @@ namespace WebProgProject.Models
         public string MatGreatGma { get; set; }
         [Display(Name = "Burial Year")]
         public string BurialYear { get; set; }
-        [Display(Name = "Census Book Number")]
+        [Display(Name = "Book")]
         public string CensusBookNumber { get; set; }
-        [Display(Name = "Census Page Number")]
+        [Display(Name = "Page")]
         public string CensusPageNumber { get; set; }
-        [Display(Name = "Census Entry Number")]
+        [Display(Name = "Entry")]
         public string CensusEntryNumber { get; set; }
         [Display(Name = "Orientation In Lot")]
         public string OrientationInLot { get; set; }
@@ -73,8 +73,9 @@ namespace WebProgProject.Models
         public string MausCorridor { get; set; }
         [Display(Name = "Mausoleum Tier")]
         public string MausTier { get; set; }
-        [Display(Name = "Grave Number in Crypt")]
+        [Display(Name = "Grave/Crypt")]
         public string GraveNumInCrypt { get; set; }
+        [Display(Name="Street Name")]
         public string Street { get; set; }
         [Display(Name = "Section Number")]
         public string SectionNum { get; set; }

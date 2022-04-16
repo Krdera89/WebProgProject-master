@@ -5,380 +5,135 @@
 @{
     ViewData["Title"] = "Details";
 }
-
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="~/css/DetailsPage.css" />
 <h1>Details about @Model.Person.LastName, @Model.Person.FirstName</h1>
 
-<form asp-page="./Index" method="get">
-    <div class="form-actions no-color">
-        <p>
-            Search by Last Name:
-            <input type="text" name="SearchString" value="" />
-            <input type="submit" value="Search" class="btn btn-primary" /> |
-            <a asp-page="./Index">Back to full List</a>
-        </p>
-    </div>
-</form>
 <div>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Upload)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Tombstone)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.CensusBookNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.CensusPageNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.CensusEntryNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MaidenName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.LastName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MiddleName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.FirstName)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.DateOfBirth)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.BirthPlace)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.DeathPlace)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.DeathCause)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.DateOfDeath)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.AgeAtDeath)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.BurialDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.BurialYear)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.FuneralHome)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.TombstoneInscription)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.OrientationInLot)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.LotNumber)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MausCorridor)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MausTier)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.GraveNumInCrypt)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Street)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.SectionNum)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.GPSGravesite)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Spouse)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Job)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.ImmigrationYear)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Mother)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.BPOM)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Father)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.BPOF)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.PatGpa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.PatGma)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MatGpa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MatGma)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.PatGreatGpa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.PatGreatGma)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MatGreatGpa)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.MatGreatGma)
-                </th>
-                @*<th>
-            @Html.DisplayNameFor(model => model.Person.GrandMother)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Person.GrandFather)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Person.GreatGrandMother)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Person.GreatGrandFather)
-        </th>*@
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Siblings)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.Children)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.notes)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.Person.CensusRecords)
-                </th>
-
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a>
+    }
+    <a asp-page="./Index">Back to List</a>
 </div>
 
-</thead>
-        <tbody>
+@*general information*@
+<div class="w3-container">
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>General</h1>
+        </header>
+        <div class="w3-container">
+            <p><img src="/Uploads/@Model.Person.Upload" width="50px" height="50px" /></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.LastName):</b> <span>@Html.DisplayFor(model => model.Person.LastName)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b> <span>@Html.DisplayFor(model => model.Person.FirstName)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b> <span>@Html.DisplayFor(model => model.Person.MiddleName)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MaidenName):</b> <span>@Html.DisplayFor(model => model.Person.MaidenName)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.DateOfBirth):</b> <span>@Html.DisplayFor(model => model.Person.DateOfBirth)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.BirthPlace):</b> <span>@Html.DisplayFor(model => model.Person.BirthPlace)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.Job):</b> <span>@Html.DisplayFor(model => model.Person.Job)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.ImmigrationYear):</b> <span>@Html.DisplayFor(model => model.Person.ImmigrationYear)</span></p>
+        </div>
+    </div>
 
-            <tr>
-                <td>
-                    <img src="/Uploads/@Model.Person.Upload" width="50px" height="50px" />
-                    @*@if (Model.Person.Upload != null)
-                    {
+    @*family info*@
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>Family</h1>
+        </header>
+        <div class="w3-container">
+            <p><b>@Html.DisplayNameFor(model => model.Person.Father):</b> <span>@Html.DisplayFor(model => model.Person.Father)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.BPOF):</b> <span>@Html.DisplayFor(model => model.Person.BPOF)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.Mother):</b> <span>@Html.DisplayFor(model => model.Person.Mother)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.BPOM):</b> <span>@Html.DisplayFor(model => model.Person.BPOM)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.Siblings):</b> <span>@Html.DisplayFor(model => model.Person.Siblings)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.Children):</b> <span>@Html.DisplayFor(model => model.Person.Children)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.PatGpa):</b> <span>@Html.DisplayFor(model => model.Person.PatGpa)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.PatGma):</b> <span>@Html.DisplayFor(model => model.Person.PatGma)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MatGpa):</b> <span>@Html.DisplayFor(model => model.Person.MatGpa)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MatGma):</b> <span>@Html.DisplayFor(model => model.Person.MatGma)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.PatGreatGpa):</b> <span>@Html.DisplayFor(model => model.Person.PatGreatGpa)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.PatGreatGma):</b> <span>@Html.DisplayFor(model => model.Person.PatGreatGma)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MatGreatGpa):</b> <span>@Html.DisplayFor(model => model.Person.MatGreatGpa)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MatGreatGma):</b> <span>@Html.DisplayFor(model => model.Person.MatGreatGma)</span></p>
+        </div>
+    </div>
+</div>
 
+@*death info*@
+<div class="w3-container">
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>Death</h1>
+        </header>
+        <div class="w3-container">
+            <p><b>@Html.DisplayNameFor(model => model.Person.DateOfDeath):</b> <span>@Html.DisplayFor(model => model.Person.DateOfDeath)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.AgeAtDeath):</b> <span>@Html.DisplayFor(model => model.Person.AgeAtDeath)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.DeathCause):</b> <span>@Html.DisplayFor(model => model.Person.DeathCause)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.DeathPlace):</b> <span>@Html.DisplayFor(model => model.Person.DeathPlace)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.FuneralHome):</b> <span>@Html.DisplayFor(model => model.Person.FuneralHome)</span></p>
+        </div>
+    </div>
 
-                        <a asp-page="/Uploads/@Model.Person.Upload"  width="100px" height="100px">
-                            @Html.DisplayFor(modelItem => Model.Person.Upload) width="50px" height="50px"
-                        </a>
-                    }
-                    else
-                    {
+    @*marriage info*@
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>Marriage</h1>
+        </header>
+        <div class="w3-container">
+            <p><b>@Html.DisplayNameFor(model => model.Person.Spouse):</b> <span>@Html.DisplayFor(model => model.Person.Spouse)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.DateOfMarriage):</b> <span>@Html.DisplayFor(model => model.Person.DateOfMarriage)</span></p>
+        </div>
+    </div>
+</div>
 
-                    }*@
-                </td>
-                <td>
-                    <img src="~/Uploads/@Model.Person.Tombstone" width="50px" height="50px" />
-                </td>
+@*burial info*@
+<div class="w3-container">
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>Burial</h1>
+        </header>
+        <div class="w3-container">
+            <p><img src="~/Uploads/@Model.Person.Tombstone" width="50px" height="50px" /></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.BurialDate):</b> <span>@Html.DisplayFor(model => model.Person.BurialDate)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.BurialYear):</b> <span>@Html.DisplayFor(model => model.Person.BurialYear)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.TombstoneInscription):</b> <span>@Html.DisplayFor(model => model.Person.TombstoneInscription)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.GPSGravesite):</b> <span>@Html.DisplayFor(model => model.Person.GPSGravesite)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.OrientationInLot):</b> <span>@Html.DisplayFor(model => model.Person.OrientationInLot)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.LotNumber):</b> <span>@Html.DisplayFor(model => model.Person.LotNumber)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MausCorridor):</b> <span>@Html.DisplayFor(model => model.Person.MausCorridor)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.MausTier):</b> <span>@Html.DisplayFor(model => model.Person.MausTier)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.GraveNumInCrypt):</b> <span>@Html.DisplayFor(model => model.Person.GraveNumInCrypt)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.Street):</b> <span>@Html.DisplayFor(model => model.Person.Street)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.SectionNum):</b> <span>@Html.DisplayFor(model => model.Person.SectionNum)</span></p>
+        </div>
+    </div>
 
-                <td>
-                    @Html.DisplayFor(model => model.Person.CensusBookNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.CensusPageNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.CensusEntryNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MaidenName)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MiddleName)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.DateOfBirth)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.BirthPlace)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.DeathPlace)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.DeathCause)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.DateOfDeath)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.AgeAtDeath)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.BurialDate)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.BurialYear)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.FuneralHome)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.TombstoneInscription)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.OrientationInLot)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.LotNumber)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MausCorridor)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MausTier)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.GraveNumInCrypt)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.Street)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.SectionNum)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.GPSGravesite)
-                </td>
+    @*other info*@
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>Other Information</h1>
+        </header>
+        <div class="w3-container">
+            <p><b>@Html.DisplayNameFor(model => model.Person.notes):</b> <span>@Html.DisplayFor(model => model.Person.notes)</span></p>
+        </div>
+    </div>
+</div>
 
-                <td>
-                    @Html.DisplayFor(model => model.Person.Spouse)
-                </td>
-
-
-                @*<td><a asp-page="/PersonPersonPages/Details" asp-route-id="@Model.Person.SpouseID"></a>
-            @if (Model.Person.SpouseID != null && Model.Person.SpouseID != 0)
-            {
-
-
-                <a asp-page="/PersonPages/Details"  asp-route-id="@Model.Person.SpouseID">
-
-                    @Html.DisplayFor(modelItem => Model.Person.Spouse)
-                </a>
-            }
-            else
-        {
-
-        }
-            </td>*@
-
-                <td>
-                    @Html.DisplayFor(model => model.Person.DateOfMarriage) @*Date of marriage*@
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.Job)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.ImmigrationYear)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.Mother)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.BPOM)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.Father)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.BPOF)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.PatGpa)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.PatGma)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MatGpa)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MatGma)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.PatGreatGpa)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.PatGreatGma)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MatGreatGpa)
-                </td>
-                <td>
-                    @Html.DisplayFor(model => model.Person.MatGreatGma)
-                </td>
-
-                @*add "other info here ! create new field and update some other things*@
-
-
-                @*<td>
-            @Html.DisplayFor(modelItem => Model.Person.GrandMother)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => Model.Person.GrandFather)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => Model.Person.GreatGrandMother)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => Model.Person.GreatGrandFather)
-        </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => Model.Person.Siblings)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Model.Person.Children)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => Model.Person.notes)
-                </td>
-                <td>
-                    <img src="~/Uploads/@Model.Person.CensusRecords" width="50px" height="50px" />
-                </td>
-                @*<td>
-            @Html.DisplayFor(modelItem => Model.Person.AgeAtDeath)
-        </td>*@
-
-
-
-                <div>
-                    <a asp-page="./Edit" asp-route-id="@Model.Person.id">Edit</a> |
-                    <a asp-page="./Index">Back to List</a>
-                </div>
-                </table>
+@*internment book*@
+<div class="w3-container">
+    <div class="" style="width:50%;float:left;padding:5px;">
+        <header class="w3-container w3-blue">
+            <h1>Internment Book</h1>
+        </header>
+        <div class="w3-container">
+            <p><b>@Html.DisplayNameFor(model => model.Person.CensusBookNumber):</b> <span>@Html.DisplayFor(model => model.Person.CensusBookNumber)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.CensusPageNumber):</b> <span>@Html.DisplayFor(model => model.Person.CensusPageNumber)</span></p>
+            <p><b>@Html.DisplayNameFor(model => model.Person.CensusEntryNumber):</b> <span>@Html.DisplayFor(model => model.Person.CensusEntryNumber)</span></p>
+            <p><img src="~/Uploads/@Model.Person.CensusRecords" width="50px" height="50px" /></p>
+        </div>
+    </div>
+</div>
