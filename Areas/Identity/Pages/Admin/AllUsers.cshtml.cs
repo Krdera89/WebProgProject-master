@@ -12,13 +12,13 @@ namespace WebProgProject.Areas.Identity.Pages.Admin
     {
         private UserManager<IdentityUser> userManager;
         public List<IdentityUser> users;
-        public void UsersModel(UserManager<IdentityUser> usrMgr)
+        public AllUsersModel(UserManager<IdentityUser> usrMgr)
         {
             userManager = usrMgr;
         }
         public void OnGet()
         {
-            users = userManager.Users.ToList<IdentityUser>();
+            users = userManager.Users.ToList<IdentityUser>(); 
         }
     }
 }
