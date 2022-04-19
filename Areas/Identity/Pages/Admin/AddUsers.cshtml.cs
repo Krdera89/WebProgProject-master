@@ -19,19 +19,21 @@ namespace WebProgProject.Areas.Identity.Pages.Admin
         public string UserName { get; set; }
         [BindProperty]
         public string Email { get; set; }
+        [BindProperty]
+        public string Password { get; set; }
         public void OnGet()
         {
         }
         public async Task<IActionResult> OnPost()
         {
-            if (UserName != null && Email != null)
+            if (UserName != null && Password != null)
             {
                 IdentityUser newUser = new IdentityUser();
                 newUser.UserName = UserName;
-                newUser.Email = Email;
+                newUser.PasswordHash = Password;
                 IdentityResult result = await userManager.CreateAsync(newUser);
             }
-            return RedirectToPage("./Users");
+            return RedirectToPage("./AllUsers");
         }
     }
 }
