@@ -52,7 +52,7 @@ namespace WebProgProject.Pages.PersonPages
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        [BindProperty]
+        //[BindProperty]
         public IFormFile Upload { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
@@ -61,11 +61,13 @@ namespace WebProgProject.Pages.PersonPages
                 return Page();
             }
             if (Person.Upload != null && Person.Upload != ""){
-                var file = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads/", Upload.FileName);
+
+                var file = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads/", Person.Upload);
                 using (var fileStream = new FileStream(file, FileMode.Create))
                 {
                     await Upload.CopyToAsync(fileStream);
                 }
+
             }
             _context.Attach(Person).State = EntityState.Modified;
 

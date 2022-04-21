@@ -17,10 +17,10 @@
             <input type="file" asp-for="Person.Upload" />
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Person.id" />
-            Image
+            @*Image
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="file" asp-for="Person.Tombstone" />
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>*@
 
             <div class="form-group">
                 <label asp-for="Person.Name" class="control-label"></label>
@@ -183,12 +183,13 @@
                 <label asp-for="Person.MatGreatGma" class="control-label"></label>
                 <input asp-for="Person.MatGreatGma" class="form-control" />
                 <span asp-validation-for="Person.MatGreatGma" class="text-danger"></span>
+                </div>
                 Census records
-                <div class="form-group">
+                @*<div class="form-group">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                     <input type="file" asp-for="Person.CensusRecords" class="text-danger" />
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                </div>
+                </div>*@
                 @*<div class="form-group">
             <label asp-for="Person.GrandMother" class="control-label"></label>
             <input asp-for="Person.GrandMother" class="form-control" />
