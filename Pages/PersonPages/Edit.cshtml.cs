@@ -33,7 +33,12 @@ namespace WebProgProject.Pages.PersonPages
 
         [BindProperty]
         public Person Person { get; set; }
-
+        [BindProperty]
+        public string type { get; set; }
+        [BindProperty]
+        public IFormFile Upload { get; set; }
+        [BindProperty]
+        public Picture pic { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -52,23 +57,22 @@ namespace WebProgProject.Pages.PersonPages
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
-        //[BindProperty]
-        public IFormFile Upload { get; set; }
+        
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
             {
                 return Page();
             }
-            if (Person.Upload != null && Person.Upload != ""){
 
-                var file = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads/", Person.Upload);
-                using (var fileStream = new FileStream(file, FileMode.Create))
-                {
-                    await Upload.CopyToAsync(fileStream);
-                }
-
+            //if (Person.Upload != null && Person.Upload != "")
+            //{
+            var file = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", Person.id.ToString() + type);
+            using (var fileStream = new FileStream(file, FileMode.Create))
+            {
+                await Upload.CopyToAsync(fileStream);
             }
+            // }
             _context.Attach(Person).State = EntityState.Modified;
 
             try
