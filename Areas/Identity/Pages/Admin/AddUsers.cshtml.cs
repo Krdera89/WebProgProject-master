@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
@@ -11,15 +12,17 @@ namespace WebProgProject.Areas.Identity.Pages.Admin
     public class AddUsersModel : PageModel
     {
         private UserManager<IdentityUser> userManager;
-        public void AddUserModel(UserManager<IdentityUser> usrMgr)
+        public AddUsersModel(UserManager<IdentityUser> usrMgr)
         {
             userManager = usrMgr;
         }
         [BindProperty]
+        [Required]
         public string UserName { get; set; }
+        //[BindProperty]
+        //public string Email { get; set; }
         [BindProperty]
-        public string Email { get; set; }
-        [BindProperty]
+        [Required]
         public string Password { get; set; }
         public void OnGet()
         {
@@ -30,8 +33,11 @@ namespace WebProgProject.Areas.Identity.Pages.Admin
             {
                 IdentityUser newUser = new IdentityUser();
                 newUser.UserName = UserName;
-                newUser.PasswordHash = Password;
-                IdentityResult result = await userManager.CreateAsync(newUser);
+                //newUser.PasswordHash = Password;
+                //newUser.Email = Email;
+                newUser.EmailConfirmed = true;
+                IdentityResult result = await userManager.CreateAsync(newUser, Password);
+                
             }
             return RedirectToPage("./AllUsers");
         }
