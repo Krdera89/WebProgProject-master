@@ -27,7 +27,7 @@
             <h1>General</h1>
         </header>
         <div class="w3-container">
-            <a asp-page="/PersonPages/Details"><img src="~/Uploads/DefaultImage.png" width="100px" height="100px" /> </a>
+            <a href="~/Uploads/DefaultImage.png"><img src="~/Uploads/DefaultImage.png" width="100px" height="100px" /> </a>
             <p><b>@Html.DisplayNameFor(model => model.Person.LastName):</b> <span>@Html.DisplayFor(model => model.Person.LastName)</span></p>
             <p><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b> <span>@Html.DisplayFor(model => model.Person.FirstName)</span></p>
             <p><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b> <span>@Html.DisplayFor(model => model.Person.MiddleName)</span></p>
