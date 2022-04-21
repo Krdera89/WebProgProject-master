@@ -1,0 +1,42 @@
+﻿@page
+@model WebProgProject.Areas.Identity.Pages.Admin.AllUsersModel; 
+
+    @{
+    }
+    @inject SignInManager<IdentityUser> SignInManager
+    @inject UserManager<IdentityUser> UserManager
+    
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a asp-area="Identity" asp-page="/Admin/AddUsers">Create new</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.users[0].UserName)
+                    </th>
+                    <th>
+
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.users)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => user.UserName)
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
