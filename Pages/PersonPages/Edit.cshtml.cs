@@ -35,10 +35,15 @@ namespace WebProgProject.Pages.PersonPages
         public Person Person { get; set; }
         [BindProperty]
         public string type { get; set; }
+        //[BindProperty]
+        //public string uploadimage { get; set; }
         [BindProperty]
         public IFormFile Upload { get; set; }
         [BindProperty]
+        public IFormFile TombstoneUpload { get; set; }
+        [BindProperty]
         public Picture pic { get; set; }
+        
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -67,13 +72,38 @@ namespace WebProgProject.Pages.PersonPages
 
             //if (Person.Upload != null && Person.Upload != "")
             //{
-            var file = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", Person.id.ToString() + type);
-            using (var fileStream = new FileStream(file, FileMode.Create))
+            
+            
+
+            if (Upload != null)
             {
-                await Upload.CopyToAsync(fileStream);
-                Person.Upload = Person.id.ToString() + type;
+                var fileUpload = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", Person.id.ToString() + type);
+                using (var fileStream = new FileStream(fileUpload, FileMode.Create))
+                {
+
+                    await Upload.CopyToAsync(fileStream);
+                    Person.Upload = Path.GetFileName(fileUpload);
+                    
+                }
             }
-            // }
+            else
+            {
+                Person.Upload = Person.id.ToString() + ".jpg";
+            }
+
+
+            if (TombstoneUpload != null)
+            {
+                var fileTombstone = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", "tombstone" + Person.id.ToString() + type);
+                using (var filestream = new FileStream(fileTombstone, FileMode.Create))
+                {
+
+                    await TombstoneUpload.CopyToAsync(filestream);
+                    Person.Tombstone = "tombstone" + Person.id.ToString() + ".jpg";
+
+                }
+            }
+            
             _context.Attach(Person).State = EntityState.Modified;
 
             try

@@ -17,11 +17,35 @@
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="file" asp-for="Upload" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Person.id"/>
+                
+            </div>
+            <select name="type">
+                <option value="">Select File Extension</option>
+                <option value=".pdf">PDF</option>
+                <option value=".jpg">JPG</option>
+                <option value=".png">PNG</option>
+                <option value=".jpeg">JPEG</option>
+                <option value=".gif">GIF</option>
+                <option value=".doc">DOC</option>
+                <option value=".docx">DOCX</option>
+            </select>
+            Tombstone
+            <div class="form-group" name="uploadtombstone">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="file" asp-for="TombstoneUpload" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" asp-for="Person.id" />
             </div>
             <select name="type">
-                <option value=".pdf">Pdf</option>
-                <option value=".jpg">Jpg</option>
+                <option value="">Select File Extension</option>
+                <option value=".pdf">PDF</option>
+                <option value=".jpg">JPG</option>
+                <option value=".png">PNG</option>
+                <option value=".jpeg">JPEG</option>
+                <option value=".gif">GIF</option>
+                <option value=".doc">DOC</option>
+                <option value=".docx">DOCX</option>
             </select>
             @*Image
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>

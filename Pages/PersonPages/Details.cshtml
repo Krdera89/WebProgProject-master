@@ -28,7 +28,7 @@
         </header>
         <div class="w3-container">
             <a href="~/Uploads/@Html.DisplayFor(model => model.Person.Upload)">
-                @{if (@Html.DisplayFor(model => model.Person.Upload) == null)
+                @{if (@Html.DisplayFor(model => model.Person.Upload) != null)
                     {
                         <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}
                     else
@@ -102,7 +102,13 @@
             <h1>Burial</h1>
         </header>
         <div class="w3-container">
-            <p><a asp-page=""> <img src="~/Uploads/@Model.Person.Tombstone" width="100px" height="100px" /></a> </p>
+            <a href="~/Uploads/@Html.DisplayFor(model => model.Person.Tombstone)">
+                @{if (@Html.DisplayFor(model => model.Person.Tombstone) == null)
+                    {
+                        <img src="~/Uploads/Tombstone.jpg" width="100px" height="100px" />}
+                    else
+                    { <img src="~/Uploads/@Html.DisplayFor(model => model.Person.Tombstone)" width="100px" height="100px" />}}
+            </a>
             <p><b>@Html.DisplayNameFor(model => model.Person.BurialDate):</b> <span>@Html.DisplayFor(model => model.Person.BurialDate)</span></p>
             <p><b>@Html.DisplayNameFor(model => model.Person.BurialYear):</b> <span>@Html.DisplayFor(model => model.Person.BurialYear)</span></p>
             <p><b>@Html.DisplayNameFor(model => model.Person.TombstoneInscription):</b> <span>@Html.DisplayFor(model => model.Person.TombstoneInscription)</span></p>
