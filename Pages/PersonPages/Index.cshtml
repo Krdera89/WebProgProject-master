@@ -87,7 +87,7 @@
         {
             <tr>
                 <td>
-                    <a asp-page=""> <img src="~/Uploads/DefaultImage.png" width="50px" height="50px" /> </a>
+                    <a asp-page="./PersonPages/Details" asp-route-id="@item.id"> <img src="~/Uploads/DefaultImage.png" width="50px" height="50px" /> </a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.MaidenName)
@@ -129,12 +129,12 @@
                 <td>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <a asp-page="./Edit" asp-route-id="@item.id">Edit</a>
+                        <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a>
                     }
-                    <a asp-page="./Details" asp-route-id="@item.id">Details</a>
+                    <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a>
                     @if (SignInManager.IsSignedIn(User))
                     {
-                        <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                        <a asp-page="./PersonPages/Delete" asp-route-id="@item.id">Delete</a>
                     }
                 </td>
             </tr>
