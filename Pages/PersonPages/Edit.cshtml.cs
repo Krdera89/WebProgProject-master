@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -16,15 +19,26 @@ namespace WebProgProject.Pages.PersonPages
     public class EditModel : PageModel
     {
         private readonly WebProgProject.Data.ApplicationDbContext _context;
+        private IHostingEnvironment _environment;
 
-        public EditModel(WebProgProject.Data.ApplicationDbContext context)
+        //public FileUploadModel(IHostingEnvironment environment)
+        //{
+        //    _environment = environment;
+        //}
+        public EditModel(WebProgProject.Data.ApplicationDbContext context, IHostingEnvironment environment)
         {
             _context = context;
+            _environment = environment;
         }
 
         [BindProperty]
         public Person Person { get; set; }
-
+        [BindProperty]
+        public string type { get; set; }
+        [BindProperty]
+        public IFormFile Upload { get; set; }
+        [BindProperty]
+        public Picture pic { get; set; }
         public async Task<IActionResult> OnGetAsync(int? id)
         {
             if (id == null)
@@ -43,6 +57,7 @@ namespace WebProgProject.Pages.PersonPages
 
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://aka.ms/RazorPagesCRUD.
+        
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -50,6 +65,14 @@ namespace WebProgProject.Pages.PersonPages
                 return Page();
             }
 
+            //if (Person.Upload != null && Person.Upload != "")
+            //{
+            var file = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", Person.id.ToString() + type);
+            using (var fileStream = new FileStream(file, FileMode.Create))
+            {
+                await Upload.CopyToAsync(fileStream);
+            }
+            // }
             _context.Attach(Person).State = EntityState.Modified;
 
             try
