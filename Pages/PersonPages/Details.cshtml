@@ -27,16 +27,21 @@
             <h1>General</h1>
         </header>
         <div class="w3-container">
-            <a href="~/Uploads/DefaultImage.png"><img src="~/Uploads/DefaultImage.png" width="100px" height="100px" /> </a>
-            <p><b>@Html.DisplayNameFor(model => model.Person.LastName):</b> <span>@Html.DisplayFor(model => model.Person.LastName)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b> <span>@Html.DisplayFor(model => model.Person.FirstName)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b> <span>@Html.DisplayFor(model => model.Person.MiddleName)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.MaidenName):</b> <span>@Html.DisplayFor(model => model.Person.MaidenName)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.DateOfBirth):</b> <span>@Html.DisplayFor(model => model.Person.DateOfBirth)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.BirthPlace):</b> <span>@Html.DisplayFor(model => model.Person.BirthPlace)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.Job):</b> <span>@Html.DisplayFor(model => model.Person.Job)</span></p>
-            <p><b>@Html.DisplayNameFor(model => model.Person.ImmigrationYear):</b> <span>@Html.DisplayFor(model => model.Person.ImmigrationYear)</span></p>
-        </div>
+            <a href="~/Uploads/@Html.DisplayFor(model => model.Person.Upload)">
+                @{if (@Html.DisplayFor(model => model.Person.Upload) == null)
+                    {
+                        <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}
+                    else
+                    { <img src="~/Uploads/@Html.DisplayFor(model => model.Person.Upload)" width="100px" height="100px" />}}</a>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.LastName):</b> <span>@Html.DisplayFor(model => model.Person.LastName)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b> <span>@Html.DisplayFor(model => model.Person.FirstName)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b> <span>@Html.DisplayFor(model => model.Person.MiddleName)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.MaidenName):</b> <span>@Html.DisplayFor(model => model.Person.MaidenName)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.DateOfBirth):</b> <span>@Html.DisplayFor(model => model.Person.DateOfBirth)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.BirthPlace):</b> <span>@Html.DisplayFor(model => model.Person.BirthPlace)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.Job):</b> <span>@Html.DisplayFor(model => model.Person.Job)</span></p>
+                        <p><b>@Html.DisplayNameFor(model => model.Person.ImmigrationYear):</b> <span>@Html.DisplayFor(model => model.Person.ImmigrationYear)</span></p>
+</div>
     </div>
 
     @*family info*@

@@ -71,6 +71,7 @@ namespace WebProgProject.Pages.PersonPages
             using (var fileStream = new FileStream(file, FileMode.Create))
             {
                 await Upload.CopyToAsync(fileStream);
+                Person.Upload = Person.id.ToString() + type;
             }
             // }
             _context.Attach(Person).State = EntityState.Modified;
