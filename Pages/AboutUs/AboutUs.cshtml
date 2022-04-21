@@ -28,38 +28,7 @@
     <div>
         <title>Add Map</title>
 
-        <style type="text/css">
-            /* Set the size of the div element that contains the map */
-            #map {
-                height: 400px;
-                /* The height is 400 pixels */
-                width: 100%;
-                /* The width is the width of the web page */
-            }
-        </style>
-        <script>
-            // Initialize and add the map
-            function initMap() {
-                // The location of cemetery
-                const cemetery = { lat: 39.0619011, lng: -84.5550003 };
-                // The map, centered at cemetery
-                const map = new google.maps.Map(document.getElementById("map"), {
-                    zoom: 15,
-                    center: cemetery,
-                });
-                // The marker, positioned at cemetery
-                const marker = new google.maps.Marker({
-                    position: cemetery,
-                    map: map,
-                });
-            }
-        </script>
-        <!--The div element for the map -->
-        <div id="map"></div>
-
-        <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
-        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVgZd68WxBpfLFx70Q9VhpGg3qJd3sv3o&callback=initMap&libraries=&v=weekly"
-                async></script>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3098.085557507143!2d-84.55457978480605!3d39.05896434500964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8841b710d438c625%3A0x3138a20e1b703382!2sSt%20John&#39;s%20Cemetery!5e0!3m2!1sen!2sus!4v1650519826011!5m2!1sen!2sus" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 </body>
 </html>
