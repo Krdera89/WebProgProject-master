@@ -88,7 +88,7 @@ namespace WebProgProject.Pages.PersonPages
             }
             else
             {
-                Person.Upload = Person.id.ToString() + ".jpg";
+                Person.Upload = Person.id.ToString() + type;
             }
 
 
@@ -99,7 +99,7 @@ namespace WebProgProject.Pages.PersonPages
                 {
 
                     await TombstoneUpload.CopyToAsync(filestream);
-                    Person.Tombstone = "tombstone" + Person.id.ToString() + ".jpg";
+                    Person.Tombstone = Path.GetFileName(fileTombstone);
 
                 }
             }
