@@ -40,6 +40,8 @@ namespace WebProgProject.Pages.PersonPages
         [BindProperty]
         public IFormFile Upload { get; set; }
         [BindProperty]
+        public IFormFile CensusUpload { get; set; } 
+        [BindProperty]
         public IFormFile TombstoneUpload { get; set; }
         [BindProperty]
         public Picture pic { get; set; }

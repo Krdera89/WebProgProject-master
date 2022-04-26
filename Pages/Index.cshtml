@@ -128,9 +128,12 @@
                         <a asp-page="./PersonPages/Details" asp-route-id="@item.id">
                             @{if (item.Upload == null)
                                 {
+                                   @*<img src="~/Uploads/@item.Upload" width="50px" height="50px" />*@
                                     <img src="~/Uploads/DefaultImage.png" width="50px" height="50px" />}
+                                @*else
+                                { <img src="~/Uploads/@item.Upload" width="50px" height="50px" /> }}*@
                                 else
-                                { <img src="~/Uploads/@item.Upload" width="50px" height="50px" /> }}
+                                { <img src="~/Uploads/DefaultImage.png" width="50px" height="50px" /> }}
                         </a>
                     </td>
                     <td>
