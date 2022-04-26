@@ -9,47 +9,46 @@
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
 
-
-<center><h1>Welcome to St. John Cemetery!!</h1></center>
+<center><h1>St. John Cemetery</h1></center>
 <!-- Slideshow container -->
 <div class="slideshow-container">
 
     <!-- Full-width images with number and caption text -->
     <div class="mySlides">
         <div class="numbertext">1 / 7</div>
-        <center><img src="https://images.findagrave.com/photos250/photos/2013/134/CEM75876_136863814726.jpg" style="width:50%" height="400px"></center>
+        <center><img src="https://images.findagrave.com/photos250/photos/2013/134/CEM75876_136863814726.jpg" style="width: 600px; height: 400px; object-fit: cover;"></center>
     </div>
 
     <div class="mySlides">
         <div class="numbertext">2 / 7</div>
-        <center><img src="https://images.findagrave.com/photos250/photos/2013/135/CEM75876_136872196868.jpg" style="width:50%" height="400px"></center>
+        <center><img src="https://images.findagrave.com/photos250/photos/2013/135/CEM75876_136872196868.jpg" style="width: 600px; height: 400px; object-fit: cover;"></center>
     </div>
 
     <div class="mySlides">
         <div class="numbertext">3 / 7</div>
-        <center><img src="https://images.findagrave.com/photos250/photos/2008/219/CEM46830787_121811901966.jpg" style="width:50%" height="400px"></center>
+        <center><img src="https://images.findagrave.com/photos250/photos/2008/219/CEM46830787_121811901966.jpg" style="width: 600px; height: 400px; object-fit: cover;"></center>
     </div>
 
     <div class="mySlides">
         <div class="numbertext">4 / 7</div>
-        <center><img src="https://images.findagrave.com/photos250/photos/2012/227/CEM75876_134504364691.jpg" style="width:50%" height="400px"></center>
+        <center><img src="https://images.findagrave.com/photos250/photos/2012/227/CEM75876_134504364691.jpg" style="width: 600px; height: 400px; object-fit: cover;"></center>
     </div>
 
-    <div class="mySlides">
+    @*<div class="mySlides">
         <div class="numbertext">5 / 7</div>
-        <center><img src="https://images.findagrave.com/photos/2012/293/CEM75876_135077379956.jpg" style="width:50%" height="400px"></center>
-    </div>
+        <center><img src="https://images.findagrave.com/photos/2012/293/CEM75876_135077379956.jpg"></center>
+    </div>*@
 
     <div class="mySlides">
         <div class="numbertext">6 / 7</div>
-        <center><img src="https://images.findagrave.com/photos/2012/293/CEM75876_135077367635.jpg" style="width:50%" height="400px"></center>
+        <center><img src="https://images.findagrave.com/photos/2012/293/CEM75876_135077367635.jpg" style="width: 600px; height: 400px; object-fit: cover;"></center>
     </div>
 
-    <div class="mySlides">
+    @*<div class="mySlides">
         <div class="numbertext">7 / 7</div>
-        <center><img src="https://images.findagrave.com/photos/2013/248/CEM75876_137849756292.jpg" style="width:50%" height="400px"></center>
-    </div>
-
+        <center><img src="https://images.findagrave.com/photos/2013/248/CEM75876_137849756292.jpg"></center>
+    </div>*@
+    <
 
     <br>
 
@@ -60,22 +59,43 @@
     <form asp-page="./Index" method="get">
         <div class="form-actions no-color">
             <p>
-                Find by name:
+                Search by:
+                <select name="searchType">
+                    <option value="firstName">First Name</option>
+                    <option value="lastName">Last Name</option>
+                    <option value="maidenName">Maiden Name</option>
+                    <option value="burialYear">Burial Year</option>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <option value="personId">ID</option>
+                    }
+                </select>
                 <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+
                 <input type="submit" value="Search" class="btn btn-primary" /> |
                 <a asp-page="./Index">Back to full List</a>
             </p>
+
         </div>
     </form>
 
     <table class="table">
-        <thead>
+
+        <thead style="position:sticky;top:0;background-color:white;">
             <tr>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Persons[0].id)
+                    </th>
+                }
                 <th>
                     @Html.DisplayNameFor(model => model.Persons[0].Upload)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Persons[0].MaidenName)
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.MaidenNameSort">
+                        @Html.DisplayNameFor(model => model.Persons[0].MaidenName)
+                    </a>
                 </th>
                 <th>
                     <a asp-page="./Index" asp-route-sortOrder="@Model.FNameSort">
@@ -91,14 +111,10 @@
                     </a>
                 </th>
                 <th>
-                    <a asp-page="./Index" asp-route-sortOrder="@Model.BirthDateSort">
                         @Html.DisplayNameFor(model => model.Persons[0].DateOfBirth)
-                    </a>
                 </th>
                 <th>
-                    <a asp-page="./Index" asp-route-sortOrder="@Model.DeathDateSort">
                         @Html.DisplayNameFor(model => model.Persons[0].DateOfDeath)
-                    </a>
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Persons[0].BirthPlace)
@@ -107,81 +123,90 @@
                     @Html.DisplayNameFor(model => model.Persons[0].DeathPlace)
                 </th>
                 @*<th>
-                        @Html.DisplayNameFor(model => model.Person[0].Profession)
-                    </th>*@
+            @Html.DisplayNameFor(model => model.Person[0].Profession)
+        </th>*@
                 <th>
                     @Html.DisplayNameFor(model => model.Persons[0].DeathCause)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.Persons[0].gender)
+                    <a asp-page="./Index" asp-route-sortOrder="@Model.BurialSort">
+                        @Html.DisplayNameFor(model => model.Persons[0].BurialYear)
+                    </a>
                 </th>
                 <th>
                     @Html.DisplayNameFor(model => model.Persons[0].BurialDate)
                 </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model.Persons)
             {
-                <tr>
+            <tr>
+                @if (SignInManager.IsSignedIn(User))
+                {
                     <td>
-                        <a asp-page="./PersonPages/Details" asp-route-id="@item.id">
-                            @{if (item.Upload == null)
-                                {
-                                    <img src="~/Uploads/DefaultImage.png" width="50px" height="50px" />}
-                                else
-                                { <img src="~/Uploads/@item.Upload" width="50px" height="50px" /> }}
-                        </a>
+                        @Html.DisplayFor(modelItem => item.id)
                     </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MaidenName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.FirstName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.MiddleName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.LastName)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateOfBirth)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DateOfDeath)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BirthPlace)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DeathPlace)
-                    </td>
-                    @*<td>
-                            @Html.DisplayFor(modelItem => item.Profession)
-                        </td>*@
-                    <td>
-                        @Html.DisplayFor(modelItem => item.DeathCause)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.gender)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.BurialDate)
-                    </td>
+                }
+                <td>
+                    <a asp-page="./PersonPages/Details" asp-route-id="@item.id">
+                        @{if (item.Upload == null)
+                            {
+                                <img src="~/Uploads/DefaultImage.png" width="50px" height="50px" />}
+                            else
+                            { <img src="~/Uploads/@item.Upload" width="50px" height="50px" /> }}
+                    </a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MaidenName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfBirth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateOfDeath)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BirthPlace)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeathPlace)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Profession)
+        </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.DeathCause)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BurialYear)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BurialDate)
+                </td>
 
-                    <td>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a>
-                        }
-                        <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a>
-                        @if (SignInManager.IsSignedIn(User))
-                        {
-                            <a asp-page="./PersonPages/Delete" asp-route-id="@item.id">Delete</a>
-                        }
-                        </td>
-                </tr>
+                <td>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-page="./PersonPages/Edit" asp-route-id="@item.id">Edit</a>
+                    }
+                    <a asp-page="./PersonPages/Details" asp-route-id="@item.id">Details</a>
+                    @if (SignInManager.IsSignedIn(User))
+                    {
+                        <a asp-page="./PersonPages/Delete" asp-route-id="@item.id">Delete</a>
+                    }
+                </td>
+            </tr>
             }
         </tbody>
     </table>
