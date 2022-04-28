@@ -28,13 +28,13 @@
         </header>
         <div class="w3-container">
 
-            @*<a href="~/Uploads/@Model.Person.Upload">*@
-            <a href="~/Uploads/DefaultImage.png" width="100px" height="100px">
+            <a href="~/Uploads/@Model.Person.Upload">
+            @*<a href="~/Uploads/DefaultImage.png" width="100px" height="100px">*@
                 @{if (@Html.DisplayFor(model => model.Person.Upload) == null)
                     {
-                        <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}
+                        <img src="~/Uploads/@Model.Person.Upload" width="100px" height="100px" />}
                     else
-                    { <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}}
+                    { <img src="~/Uploads/@Model.Person.Upload" width="100px" height="100px" />}}
           </a>
             
         <div class="row">
