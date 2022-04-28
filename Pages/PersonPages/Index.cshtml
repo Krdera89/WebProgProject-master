@@ -20,22 +20,41 @@
 <form asp-page="./Index" method="get">
     <div class="form-actions no-color">
         <p>
-            Find by name:
+            Search by:
+            <select name="searchType">
+                <option value="firstName">First Name</option>
+                <option value="lastName">Last Name</option>
+                <option value="maidenName">Maiden Name</option>
+                <option value="burialYear">Burial Year</option>
+                @if (SignInManager.IsSignedIn(User)) {
+                    <option value="personId">ID</option>
+                }
+            </select>
             <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            
             <input type="submit" value="Search" class="btn btn-primary" /> |
             <a asp-page="./Index">Back to full List</a>
         </p>
+        
     </div>
 </form>
 
 <table class="table">
-    <thead>
+    <thead style="position:sticky;top:0;background-color:white;">
         <tr>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.Persons[0].id)
+                </th>
+            }
             <th>
                 @Html.DisplayNameFor(model => model.Persons[0].Upload)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persons[0].MaidenName)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.MaidenNameSort">
+                    @Html.DisplayNameFor(model => model.Persons[0].MaidenName)
+                </a>
             </th>
             <th>
                 <a asp-page="./Index" asp-route-sortOrder="@Model.FNameSort">
@@ -51,14 +70,10 @@
                 </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.BirthDateSort">
                     @Html.DisplayNameFor(model => model.Persons[0].DateOfBirth)
-                </a>
             </th>
             <th>
-                <a asp-page="./Index" asp-route-sortOrder="@Model.DeathDateSort">
                     @Html.DisplayNameFor(model => model.Persons[0].DateOfDeath)
-                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Persons[0].BirthPlace)
@@ -67,13 +82,15 @@
                 @Html.DisplayNameFor(model => model.Persons[0].DeathPlace)
             </th>
             @*<th>
-                    @Html.DisplayNameFor(model => model.Person[0].Profession)
-                </th>*@
+                @Html.DisplayNameFor(model => model.Person[0].Profession)
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Persons[0].DeathCause)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Persons[0].gender)
+                <a asp-page="./Index" asp-route-sortOrder="@Model.BurialSort">
+                    @Html.DisplayNameFor(model => model.Persons[0].BurialYear)
+                </a>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Persons[0].BurialDate)
@@ -83,10 +100,17 @@
         </tr>
     </thead>
     <tbody>
+        
         @foreach (var item in Model.Persons)
         {
             <tr>
+            @if (SignInManager.IsSignedIn(User))
+            {
                 <td>
+                    @Html.DisplayFor(modelItem => item.id)
+                </td>
+            }
+            <td>
                     <a asp-page="/Details" asp-route-id="@item.id">
                         @{if (item.Upload == null)
                             {
@@ -96,58 +120,58 @@
                             { <img src="~/Uploads/@item.Upload" width="50px" height="50px" /> }}
                     </a>
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MaidenName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FirstName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MiddleName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateOfBirth)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DateOfDeath)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BirthPlace)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.DeathPlace)
-                </td>
-                @*<td>
-                        @Html.DisplayFor(modelItem => item.Profession)
-                    </td>*@
-                <td>
-                    @Html.DisplayFor(modelItem => item.DeathCause)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.BurialDate)
-                </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaidenName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfBirth)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateOfDeath)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthPlace)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DeathPlace)
+            </td>
+            @*<td>
+            @Html.DisplayFor(modelItem => item.Profession)
+        </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.DeathCause)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BurialYear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BurialDate)
+            </td>
 
-                <td>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <a asp-page="./Edit" asp-route-id="@item.id">Edit</a>
-                    }
-                    <a asp-page="./Details" asp-route-id="@item.id">Details</a>
-                    @if (SignInManager.IsSignedIn(User))
-                    {
-                        <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
-                    }
-                </td>
-            </tr>
+            <td>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a asp-page="./Edit" asp-route-id="@item.id">Edit</a>
+                }
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a>
+                @if (SignInManager.IsSignedIn(User))
+                {
+                    <a asp-page="./Delete" asp-route-id="@item.id">Delete</a>
+                }
+            </td>
+        </tr>
         }
-    </tbody>
-</table>
+        </tbody>
+    </table>
 @{
     var prevDisabled = !Model.Persons.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.Persons.HasNextPage ? "disabled" : "";

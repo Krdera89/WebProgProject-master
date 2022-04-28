@@ -22,6 +22,7 @@ namespace WebProgProject.Models
         public string CensusRecords{get;set;}
         [Display(Name = "Tombstone Image")]
         public string Tombstone { get; set; }
+        [Display(Name = "")]
         public string Upload { get; set; }
         [Display(Name = "Maiden Name")]
         public string MaidenName { get; set; }
@@ -84,6 +85,22 @@ namespace WebProgProject.Models
         [Display(Name = "GPS Reading at Gravesite")]
         public string GPSGravesite { get; set; }
 
+        [Display(Name = "Death Certificate")]
+        public string DeathCert { get; set; }
+        public string Obituary { get; set; }
+        [Display(Name = "Buried From")]
+        public string ChurchBuriedFrom { get; set; }
+        [Display(Name = "Christening/Baptism")]
+        public string Baptism { get; set; }
+        public string Godparents { get; set; }
+        [Display(Name = "Residence at Death")]
+        public string ResidenceAtDeath { get; set; }
+        [Display(Name = "Military/Other info")]
+        public string Military { get; set; }
+        [Display(Name = "Last Will & Testament")]
+        public string Will { get; set; }
+        [Display(Name = "Birth Certificate Number")]
+        public string BirthCert { get; set; }
 
         //[Display(Name = "Maternal Grand Mother")]
         //public string GrandMother { get; set; }
