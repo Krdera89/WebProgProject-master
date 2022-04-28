@@ -285,6 +285,24 @@
                 <input asp-for="Person.GPSGravesite" class="form-control" />
                 <span asp-validation-for="Person.GPSGravesite" class="text-danger"></span>
             </div>
+            <p>Census Record</p>
+            <div class="form-group">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="file" asp-for="CensusUpload" />
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Person.id" />
+
+            </div>
+            <select name="type">
+                <option value="">Select File Extension</option>
+                <option value=".pdf">PDF</option>
+                <option value=".jpg">JPG</option>
+                <option value=".png">PNG</option>
+                <option value=".jpeg">JPEG</option>
+                <option value=".gif">GIF</option>
+                <option value=".doc">DOC</option>
+                <option value=".docx">DOCX</option>
+            </select>
             <div class="form-group">
                 <label asp-for="Person.DeathCert" class="control-label"></label>
                 <input asp-for="Person.DeathCert" class="form-control" />

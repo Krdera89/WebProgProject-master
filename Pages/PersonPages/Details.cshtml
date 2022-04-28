@@ -27,18 +27,21 @@
             <h1>General</h1>
         </header>
         <div class="w3-container">
-            <a href="~/Uploads/@Model.Person.Upload">
-                @if (@Model.Person.Upload == null)
-                {
-                    <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}
-                else
-                { <img src="~/Uploads/@Model.Person.Upload)" width="100px" height="100px" />}
-            </a>
-            @if (SignInManager.IsSignedIn(User))
-            {
-                <p><b>@Html.DisplayNameFor(model => model.Person.id):</b> <span>@Html.DisplayFor(model => model.Person.id)</span></p>
-            }
+
+            @*<a href="~/Uploads/@Model.Person.Upload">*@
+            <a href="~/Uploads/DefaultImage.png" width="100px" height="100px">
+                @{if (@Html.DisplayFor(model => model.Person.Upload) == null)
+                    {
+                        <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}
+                    else
+                    { <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}}
+          </a>
+            
         <div class="row">
+          @if (SignInManager.IsSignedIn(User))
+            {
+                <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.id):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.id)</div>
+            }
             <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.LastName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.LastName)</div>
             <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.FirstName)</div>
             <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.MiddleName)</div>
@@ -124,12 +127,16 @@
             <h1>Burial</h1>
         </header>
         <div class="w3-container">
-            <a href="~/Uploads/@Model.Person.Tombstone)">
-                @if (@Model.Person.Tombstone == null)
+
+            @*<a href="~/Uploads/@Html.DisplayFor(model => model.Person.Tombstone)">*@
+            <a href="~/Uploads/Tombstone.jpg">
+                @{if (@Html.DisplayFor(model => model.Person.Tombstone) == null)
                     {
                         <img src="~/Uploads/Tombstone.jpg" width="100px" height="100px" />}
                     else
-                    { <img src="~/Uploads/@Model.Person.Tombstone)" width="100px" height="100px" />}
+                    { <img src="~/Uploads/Tombstone.jpg" width="100px" height="100px" />}}
+
+            
             </a>
             <div class="row">
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BurialDate):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BurialDate)</div>
@@ -167,12 +174,20 @@
             <h1>Internment Book</h1>
         </header>
         <div class="w3-container">
+            @*<a href="~/Uploads/@Html.DisplayFor(model => model.Person.Tombstone)">*@
+            <a href="~/Uploads/CensusRecord.jpg">
+                @{if (@Html.DisplayFor(model => model.Person.CensusRecords) == null)
+                    {
+                        <img src="~/Uploads/CensusRecord.jpg" width="100px" height="100px" />}
+                    else
+                    { <img src="~/Uploads/CensusRecord.jpg" width="100px" height="100px" />}}
+            </a>
             <div class="row">
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.CensusBookNumber):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.CensusBookNumber)</div>
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.CensusPageNumber):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.CensusPageNumber)</div>
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.CensusEntryNumber):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.CensusEntryNumber)</div>
             </div>
-            <a asp-page=""> <p> <img src="~/Uploads/@Model.Person.CensusRecords" width="100px" height="100px" /></p></a>
+
         </div>
     </div>
 </div>
