@@ -12,13 +12,13 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post" enctype="multipart/form-data">
-            Image
+            <p>Image</p>
             <div class="form-group">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="file" asp-for="Upload" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Person.id"/>
-                
+                <input type="hidden" asp-for="Person.id" />
+
             </div>
             <select name="type">
                 <option value="">Select File Extension</option>
@@ -30,7 +30,7 @@
                 <option value=".doc">DOC</option>
                 <option value=".docx">DOCX</option>
             </select>
-            Tombstone
+            <p>Tombstone</p>
             <div class="form-group" name="uploadtombstone">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="file" asp-for="TombstoneUpload" />
@@ -284,6 +284,51 @@
                 <label asp-for="Person.GPSGravesite" class="control-label"></label>
                 <input asp-for="Person.GPSGravesite" class="form-control" />
                 <span asp-validation-for="Person.GPSGravesite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.DeathCert" class="control-label"></label>
+                <input asp-for="Person.DeathCert" class="form-control" />
+                <span asp-validation-for="Person.DeathCert" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Obituary" class="control-label"></label>
+                <input asp-for="Person.Obituary" class="form-control" />
+                <span asp-validation-for="Person.Obituary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.ChurchBuriedFrom" class="control-label"></label>
+                <input asp-for="Person.ChurchBuriedFrom" class="form-control" />
+                <span asp-validation-for="Person.ChurchBuriedFrom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Baptism" class="control-label"></label>
+                <input asp-for="Person.Baptism" class="form-control" />
+                <span asp-validation-for="Person.Baptism" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Godparents" class="control-label"></label>
+                <input asp-for="Person.Godparents" class="form-control" />
+                <span asp-validation-for="Person.Godparents" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.ResidenceAtDeath" class="control-label"></label>
+                <input asp-for="Person.ResidenceAtDeath" class="form-control" />
+                <span asp-validation-for="Person.ResidenceAtDeath" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Military" class="control-label"></label>
+                <input asp-for="Person.Military" class="form-control" />
+                <span asp-validation-for="Person.Military" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.Will" class="control-label"></label>
+                <input asp-for="Person.Will" class="form-control" />
+                <span asp-validation-for="Person.Will" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Person.BirthCert" class="control-label"></label>
+                <input asp-for="Person.BirthCert" class="form-control" />
+                <span asp-validation-for="Person.BirthCert" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
