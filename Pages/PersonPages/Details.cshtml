@@ -28,33 +28,36 @@
         </header>
         <div class="w3-container">
 
-            <a href="~/Uploads/@Model.Person.Upload">
-            @*<a href="~/Uploads/DefaultImage.png" width="100px" height="100px">*@
-                @{if (@Html.DisplayFor(model => model.Person.Upload) == null)
+                @*<a href="~/Uploads/DefaultImage.png" width="100px" height="100px">*@
+                @{if (Model.Person.Upload == null)
                     {
-                        <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" />}
-                    else if(@Html.DisplayFor(model => model.Person.Upload) != null)
-                    { <img src="~/Uploads/@Model.Person.Upload" width="100px" height="100px" />}}
-          </a>
-            
-        <div class="row">
-          @if (SignInManager.IsSignedIn(User))
-            {
-                <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.id):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.id)</div>
-            }
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.LastName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.LastName)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.FirstName)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.MiddleName)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.MaidenName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.MaidenName)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.DateOfBirth):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.DateOfBirth)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BirthPlace):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BirthPlace)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BirthCert):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BirthCert)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.Baptism):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.Baptism)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.Job):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.Job)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.Military):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.Military)</div>
-            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.ImmigrationYear):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.ImmigrationYear)</div>
-        </div>
-        </div>
+                        <a href="~/Uploads/DefaultImage.png">
+                            <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" /></a>}
+                            else 
+                            { 
+                        <a href="~/Uploads/@Model.Person.Upload">
+                            <img src="~/Uploads/@Model.Person.Upload" width="100px" height="100px" /></a>}
+                     }
+                        
+
+                        <div class="row">
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.id):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.id)</div>
+                            }
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.LastName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.LastName)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.FirstName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.FirstName)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.MiddleName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.MiddleName)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.MaidenName):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.MaidenName)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.DateOfBirth):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.DateOfBirth)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BirthPlace):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BirthPlace)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BirthCert):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BirthCert)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.Baptism):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.Baptism)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.Job):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.Job)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.Military):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.Military)</div>
+                            <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.ImmigrationYear):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.ImmigrationYear)</div>
+                        </div>
+</div>
     </div>
 
     @*family info*@
