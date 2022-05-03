@@ -32,8 +32,4 @@
     <Folder Include="wwwroot\Uploads\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include="wwwroot\Uploads\IMG_5678_jpg.JPG" />
-  </ItemGroup>
-
 </Project>

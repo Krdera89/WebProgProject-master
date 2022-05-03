@@ -12,58 +12,21 @@
 <div class="row">
     <div class="col-md-4">
         <form method="post">
-            <p>Image</p>
-            <div class="form-group" enctype="multipart/form-data">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="file" asp-for="Upload" />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                @*<input type="hidden" asp-for="Person.id" />*@
-
-            </div>
-            <select name="type">
-                <option value="">Select File Extension</option>
-                <option value=".pdf">PDF</option>
-                <option value=".jpg">JPG</option>
-                <option value=".png">PNG</option>
-                <option value=".jpeg">JPEG</option>
-                <option value=".gif">GIF</option>
-                <option value=".doc">DOC</option>
-                <option value=".docx">DOCX</option>
-            </select>
-
-           <br /> Tombstone Image
             <div class="form-group">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="file" asp-for="Person.Tombstone" class="text-danger" />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <label asp-for="Person.Upload" class="control-label"></label>
+                <input asp-for="Person.Upload" class="form-control" />
+                <span asp-validation-for="Person.Upload" class="text-danger"></span>
             </div>
-            <select name="type">
-                <option value="">Select File Extension</option>
-                <option value=".pdf">PDF</option>
-                <option value=".jpg">JPG</option>
-                <option value=".png">PNG</option>
-                <option value=".jpeg">JPEG</option>
-                <option value=".gif">GIF</option>
-                <option value=".doc">DOC</option>
-                <option value=".docx">DOCX</option>
-            </select>
-            <br />
-            Census records
             <div class="form-group">
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="file" asp-for="Person.CensusRecords" class="text-danger" />
-                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <label asp-for="Person.Tombstone" class="control-label"></label>
+                <input asp-for="Person.Tombstone" class="form-control" />
+                <span asp-validation-for="Person.Tombstone" class="text-danger"></span>
             </div>
-            <select name="type">
-                <option value="">Select File Extension</option>
-                <option value=".pdf">PDF</option>
-                <option value=".jpg">JPG</option>
-                <option value=".png">PNG</option>
-                <option value=".jpeg">JPEG</option>
-                <option value=".gif">GIF</option>
-                <option value=".doc">DOC</option>
-                <option value=".docx">DOCX</option>
-            </select>
+            <div class="form-group">
+                <label asp-for="Person.CensusRecords" class="control-label"></label>
+                <input asp-for="Person.CensusRecords" class="form-control" />
+                <span asp-validation-for="Person.CensusRecords" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <label asp-for="Person.Name" class="control-label"></label>
                 <input asp-for="Person.Name" class="form-control" />

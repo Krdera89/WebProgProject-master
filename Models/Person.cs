@@ -18,11 +18,11 @@ namespace WebProgProject.Models
         [Key]
         public int id { get; set; }
         public int SpouseID { get; set; }
-        [Display(Name = "Census Records")]
+        [Display(Name = "Internment Book Image")]
         public string CensusRecords{get;set;}
         [Display(Name = "Tombstone Image")]
         public string Tombstone { get; set; }
-        [Display(Name = "")]
+        [Display(Name = "Image of Person")]
         public string Upload { get; set; }
         [Display(Name = "Maiden Name")]
         public string MaidenName { get; set; }

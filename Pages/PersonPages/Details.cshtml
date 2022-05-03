@@ -29,7 +29,7 @@
         <div class="w3-container">
 
                 @*<a href="~/Uploads/DefaultImage.png" width="100px" height="100px">*@
-                @{if (Model.Person.Upload == null)
+                @if (Model.Person.Upload == null)
                     {
                         <a href="~/Uploads/DefaultImage.png">
                             <img src="~/Uploads/DefaultImage.png" width="100px" height="100px" /></a>}
@@ -37,7 +37,7 @@
                             { 
                         <a href="~/Uploads/@Model.Person.Upload">
                             <img src="~/Uploads/@Model.Person.Upload" width="100px" height="100px" /></a>}
-                     }
+                     
                         
 
                         <div class="row">
@@ -132,16 +132,17 @@
         <div class="w3-container">
 
             @*<a href="~/Uploads/@Html.DisplayFor(model => model.Person.Tombstone)">*@
-            <a href="~/Uploads/Tombstone.jpg">
-                @{if (@Html.DisplayFor(model => model.Person.Tombstone) == null)
-                    {
-                        <img src="~/Uploads/Tombstone.jpg" width="100px" height="100px" />}
-
-                    else if(@Html.DisplayFor(model => model.Person.Tombstone) != null)
-                    { <img src="~/Uploads/@Model.Person.Tombstone" width="100px" height="100px" />}}
-
+            @if (Model.Person.Tombstone == null)
+            {
+                <a href="~/Uploads/Tombstone.jpg">
+                    <img src="~/Uploads/Tombstone.jpg" width="100px" height="100px" />
+                </a>}
+            else
+            {
+                <a href="~/Uploads/@Model.Person.Tombstone">
+                    <img src="~/Uploads/@Model.Person.Tombstone" width="100px" height="100px" />
+                </a>}
             
-            </a>
             <div class="row">
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BurialDate):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BurialDate)</div>
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.BurialYear):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.BurialYear)</div>
@@ -179,13 +180,17 @@
         </header>
         <div class="w3-container">
             @*<a href="~/Uploads/@Html.DisplayFor(model => model.Person.Tombstone)">*@
-            <a href="~/Uploads/CensusRecord.jpg">
-                @{if (@Html.DisplayFor(model => model.Person.CensusRecords) == null)
-                    {
-                        <img src="~/Uploads/CensusRecord.jpg" width="100px" height="100px" />}
-                    else if(@Html.DisplayFor(model => model.Person.CensusRecords) != null)
-                    { <img src="~/Uploads/@Model.Person.CensusRecords" width="100px" height="100px" />}}
-            </a>
+            @if (Model.Person.CensusRecords == null)
+            {
+                <a href="~/Uploads/CensusRecord.jpg">
+                    <img src="~/Uploads/CensusRecord.jpg" width="100px" height="100px" />
+                </a>}
+            else
+            {
+                <a href="~/Uploads/@Model.Person.CensusRecords">
+                    <img src="~/Uploads/@Model.Person.CensusRecords" width="100px" height="100px" />
+                </a>}
+            
             <div class="row">
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.CensusBookNumber):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.CensusBookNumber)</div>
                 <div div class="col-sm-6"><b>@Html.DisplayNameFor(model => model.Person.CensusPageNumber):</b></div> <div class="col-sm-6">@Html.DisplayFor(model => model.Person.CensusPageNumber)</div>

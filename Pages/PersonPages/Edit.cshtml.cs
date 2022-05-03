@@ -19,32 +19,15 @@ namespace WebProgProject.Pages.PersonPages
     public class EditModel : PageModel
     {
         private readonly WebProgProject.Data.ApplicationDbContext _context;
-        private IHostingEnvironment _environment;
 
-        //public FileUploadModel(IHostingEnvironment environment)
-        //{
-        //    _environment = environment;
-        //}
-        public EditModel(WebProgProject.Data.ApplicationDbContext context, IHostingEnvironment environment)
+        
+        public EditModel(WebProgProject.Data.ApplicationDbContext context)
         {
             _context = context;
-            _environment = environment;
         }
 
         [BindProperty]
         public Person Person { get; set; }
-        [BindProperty]
-        public string type { get; set; }
-        //[BindProperty]
-        //public string uploadimage { get; set; }
-        [BindProperty]
-        public IFormFile Upload { get; set; }
-        [BindProperty]
-        public IFormFile CensusUpload { get; set; } 
-        [BindProperty]
-        public IFormFile TombstoneUpload { get; set; }
-        [BindProperty]
-        public Picture pic { get; set; }
         
         public async Task<IActionResult> OnGetAsync(int? id)
         {
@@ -72,40 +55,6 @@ namespace WebProgProject.Pages.PersonPages
                 return Page();
             }
 
-            //if (Person.Upload != null && Person.Upload != "")
-            //{
-            
-            
-
-            if (Upload != null)
-            {
-                var fileUpload = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", Person.id.ToString() + type);
-                using (var fileStream = new FileStream(fileUpload, FileMode.Create))
-                {
-
-                    await Upload.CopyToAsync(fileStream);
-                    Person.Upload = Path.GetFileName(fileUpload);
-                    
-                }
-            }
-            else
-            {
-                Person.Upload = Person.id.ToString() + type;
-            }
-
-
-            if (TombstoneUpload != null)
-            {
-                var fileTombstone = Path.Combine(_environment.ContentRootPath, "wwwroot/uploads", "tombstone" + Person.id.ToString() + type);
-                using (var filestream = new FileStream(fileTombstone, FileMode.Create))
-                {
-
-                    await TombstoneUpload.CopyToAsync(filestream);
-                    Person.Tombstone = Path.GetFileName(fileTombstone);
-
-                }
-            }
-            
             _context.Attach(Person).State = EntityState.Modified;
 
             try
